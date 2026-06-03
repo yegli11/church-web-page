@@ -141,6 +141,15 @@ Fue así como, en el año 2012, esta familia obediente fue establecida al frente
           { name: 'José Daniel Marín', role: 'Sub-tesorero',  imageSrc: '/images/people/joseMarin-image.jpg', imageAlt: 'José Daniel Marín' },
         ]}
       />
+
+      <DeaconessSection
+        title="Secretaría"
+        imageHeight={750}
+        members={[
+          { name: 'Yennire de Pérez',    role: 'Secretaria',     imageSrc: '/images/people/yeniret-image.jpg', imageAlt: 'Yennire de Pérez' },
+          { name: 'Yanina de Gutiérrez', role: 'Sub-secretaria', imageSrc: '/images/people/ochi-image.jpg',    imageAlt: 'Yanina de Gutiérrez' },
+        ]}
+      />
     </MainLayout>
   );
 }
