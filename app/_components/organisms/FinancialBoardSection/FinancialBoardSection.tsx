@@ -14,6 +14,7 @@ interface FinancialMember {
 interface FinancialBoardSectionProps {
   title: string;
   members: FinancialMember[];
+  imageHeight?: { mobile?: number; tablet?: number; desktop?: number };
 }
 
 function useVisibleCount() {
@@ -33,7 +34,7 @@ function useVisibleCount() {
   return count;
 }
 
-export default function FinancialBoardSection({ title, members }: FinancialBoardSectionProps) {
+export default function FinancialBoardSection({ title, members, imageHeight }: FinancialBoardSectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const visibleCount = useVisibleCount();
   const maxIndex = Math.max(0, members.length - visibleCount);
@@ -100,7 +101,16 @@ export default function FinancialBoardSection({ title, members }: FinancialBoard
                 className="flex-shrink-0 flex flex-col items-center gap-3"
                 style={{ width: `calc(${cardWidthPercent}% - ${visibleCount > 1 ? 16 : 0}px)` }}
               >
-                <div className="relative w-full h-[360px] sm:h-[300px] md:h-[580px] rounded-2xl overflow-hidden">
+                <div
+                  className="relative w-full rounded-2xl overflow-hidden"
+                  style={{
+                    height: visibleCount === 1
+                      ? `${imageHeight?.mobile ?? 360}px`
+                      : visibleCount === 2
+                        ? `${imageHeight?.tablet ?? 340}px`
+                        : `${imageHeight?.desktop ?? 340}px`,
+                  }}
+                >
                   <Image
                     src={member.imageSrc}
                     alt={member.imageAlt}

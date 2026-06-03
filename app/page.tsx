@@ -99,6 +99,7 @@ Fue así como, en el año 2012, esta familia obediente fue establecida al frente
 
       <FinancialBoardSection
         title="Junta Financiera"
+        imageHeight={{ mobile: 360, tablet: 340, desktop: 580}}
         members={[
           { name: 'Nemcar Gutiérrez',  role: 'Miembro', imageSrc: '/images/people/roberto-image.jpg',   imageAlt: 'Nemcar Gutiérrez' },
           { name: 'Roberto Montiel',   role: 'Miembro', imageSrc: '/images/people/roberto-image.jpg',   imageAlt: 'Roberto Montiel' },
@@ -116,6 +117,7 @@ Fue así como, en el año 2012, esta familia obediente fue establecida al frente
 
       <FinancialBoardSection
         title="Diáconos"
+        imageHeight={{ mobile: 360, tablet: 340, desktop: 580}}
         members={[
           { name: 'Bladimir Hernández', role: 'Diácono', imageSrc: '/images/people/bladimir-image.jpg', imageAlt: 'Bladimir Hernández' },
           { name: 'Pedro Pereira',      role: 'Diácono', imageSrc: '/images/people/pedro-image.jpg',    imageAlt: 'Pedro Pereira' },
@@ -125,9 +127,10 @@ Fue así como, en el año 2012, esta familia obediente fue establecida al frente
 
       <DeaconessSection
         title="Diaconisas"
+        imageHeight={580}
         members={[
-          { name: 'María de Pérez',     role: 'Diaconisa', imageSrc: '/images/people/maria-image.jpg', imageAlt: 'María de Pérez' },
-          { name: 'Mirla de Montiel',   role: 'Diaconisa', imageSrc: '/images/people/ochi-image.jpg',  imageAlt: 'Mirla de Montiel' },
+          { name: 'María de Pérez',     role: 'Diaconisa', imageSrc: '/images/people/maria-image.jpg',  imageAlt: 'María de Pérez' },
+          { name: 'Mirla de Montiel',   role: 'Diaconisa', imageSrc: '/images/people/ochi-image.jpg',   imageAlt: 'Mirla de Montiel' },
           { name: 'Teodora de Caldera', role: 'Diaconisa', imageSrc: '/images/people/marina-image.jpg', imageAlt: 'Teodora de Caldera' },
         ]}
       />
@@ -135,10 +138,10 @@ Fue así como, en el año 2012, esta familia obediente fue establecida al frente
       <DeaconessSection
         title="Tesorería"
         variant="dark"
-        imageHeight={750}
+        imageHeight={580}
         members={[
-          { name: 'Marina Trillo',     role: 'Tesorera',      imageSrc: '/images/people/marina-image.jpg',    imageAlt: 'Marina Trillo' },
-          { name: 'José Daniel Marín', role: 'Sub-tesorero',  imageSrc: '/images/people/joseMarin-image.jpg', imageAlt: 'José Daniel Marín' },
+          { name: 'Marina Trillo',     role: 'Tesorera',     imageSrc: '/images/people/marina-image.jpg',    imageAlt: 'Marina Trillo' },
+          { name: 'José Daniel Marín', role: 'Sub-tesorero', imageSrc: '/images/people/joseMarin-image.jpg', imageAlt: 'José Daniel Marín' },
         ]}
       />
 
@@ -154,7 +157,8 @@ Fue así como, en el año 2012, esta familia obediente fue establecida al frente
       <DeaconessSection
         title="Departamento de Educación Cristiana"
         variant="dark"
-        imageHeight={750}
+        imageHeight={580}
+        cardMaxWidth={500}
         members={[
           { name: 'Maylit de Sierra', role: 'Directora', imageSrc: '/images/people/maylit-image.jpg', imageAlt: 'Maylit de Sierra' },
         ]}
