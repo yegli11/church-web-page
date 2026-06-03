@@ -21,29 +21,29 @@ export default function PastoralBoardSection({
   members,
 }: PastoralBoardSectionProps) {
   return (
-    <section className="bg-white pt-6 pb-16 px-10 md:px-16">
-      <div className="w-full flex flex-col md:flex-row items-start gap-10 md:gap-16">
+    <section className="bg-white pt-6 pb-16 px-6 md:px-10 lg:px-16">
+      <div className="w-full flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
 
-        {/* Text — left, flexible */}
-        <ScrollReveal direction="left" className="flex-1">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8" style={{ color: '#060773' }}>
+        {/* Text — left */}
+        <ScrollReveal direction="left" className="w-full lg:flex-1">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 lg:mb-8" style={{ color: '#060773' }}>
             {title}
           </h2>
           <div className="space-y-4">
             {paragraphs.map((p, i) => (
-              <p key={i} className="text-base md:text-lg text-[#7B817F] leading-relaxed">
+              <p key={i} className="text-sm sm:text-base lg:text-lg text-[#7B817F] leading-relaxed">
                 {p}
               </p>
             ))}
           </div>
         </ScrollReveal>
 
-        {/* Members — right, fixed width */}
-        <div className="flex flex-row gap-6 flex-shrink-0">
+        {/* Members — stacks on mobile, row on tablet+ */}
+        <div className="flex flex-row flex-wrap gap-4 sm:gap-6 w-full lg:w-auto lg:flex-shrink-0 justify-center lg:justify-end">
           {members.map((member, i) => (
             <ScrollReveal key={member.name} direction="right" delay={i * 100}>
               <div className="flex flex-col items-center gap-2">
-                <div className="relative w-56 md:w-[300px] aspect-[3/4] rounded-2xl overflow-hidden">
+                <div className="relative w-36 sm:w-48 md:w-64 lg:w-[340px] aspect-[3/4] rounded-2xl overflow-hidden">
                   <Image
                     src={member.imageSrc}
                     alt={member.imageAlt}
@@ -62,8 +62,8 @@ export default function PastoralBoardSection({
                     </svg>
                   </a>
                 </div>
-                <p className="text-[#7B817F] text-base font-medium">{member.name}</p>
-                <p className="text-[#060773] text-sm font-bold tracking-widest uppercase">{member.role}</p>
+                <p className="text-[#7B817F] text-sm sm:text-base font-medium">{member.name}</p>
+                <p className="text-[#060773] text-xs sm:text-sm font-bold tracking-widest uppercase">{member.role}</p>
               </div>
             </ScrollReveal>
           ))}

@@ -40,7 +40,7 @@ export default function PastorSection({
 
           {/* Photo — right */}
           <ScrollReveal direction="right" delay={150} className="flex-shrink-0 flex flex-col items-center gap-3">
-            <div className="relative w-72 md:w-96 aspect-[3/4] rounded-2xl overflow-hidden">
+            <div className="relative w-72 md:w-120 aspect-[3/4] rounded-2xl overflow-hidden">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
