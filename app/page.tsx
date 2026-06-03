@@ -3,11 +3,11 @@ import HeroSection from './_components/organisms/HeroSection/HeroSection';
 
 export default function HomePage() {
   return (
-    <MainLayout currentPath="/">
+    <MainLayout>
       <HeroSection
-        title="Welcome to Antorcha"
-        subtitle="A community of faith, hope, and love."
-        ctaLabel="Join Us"
+        title="Bienvenidos a Antorcha de Cristo"
+        subtitle="Una comunidad de fe, esperanza y amor."
+        ctaLabel="Conócenos"
         ctaHref="/history"
       />
     </MainLayout>

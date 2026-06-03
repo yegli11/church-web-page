@@ -4,10 +4,10 @@ import Text from '../_components/atoms/Text/Text';
 
 export default function DepartmentsPage() {
   return (
-    <MainLayout currentPath="/departments">
+    <MainLayout>
       <section>
-        <Heading level={1}>Departments</Heading>
-        <Text>Content coming soon.</Text>
+        <Heading level={1}>Departamentos</Heading>
+        <Text>Contenido próximamente.</Text>
       </section>
     </MainLayout>
   );

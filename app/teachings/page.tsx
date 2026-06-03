@@ -4,10 +4,10 @@ import Text from '../_components/atoms/Text/Text';
 
 export default function TeachingsPage() {
   return (
-    <MainLayout currentPath="/teachings">
+    <MainLayout>
       <section>
-        <Heading level={1}>Teachings</Heading>
-        <Text>Content coming soon.</Text>
+        <Heading level={1}>Enseñanzas</Heading>
+        <Text>Contenido próximamente.</Text>
       </section>
     </MainLayout>
   );

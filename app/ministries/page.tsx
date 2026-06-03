@@ -4,10 +4,10 @@ import Text from '../_components/atoms/Text/Text';
 
 export default function MinistriesPage() {
   return (
-    <MainLayout currentPath="/ministries">
+    <MainLayout>
       <section>
-        <Heading level={1}>Ministries</Heading>
-        <Text>Content coming soon.</Text>
+        <Heading level={1}>Ministerios</Heading>
+        <Text>Contenido próximamente.</Text>
       </section>
     </MainLayout>
   );

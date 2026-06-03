@@ -4,10 +4,10 @@ import Text from '../_components/atoms/Text/Text';
 
 export default function HistoryPage() {
   return (
-    <MainLayout currentPath="/history">
+    <MainLayout>
       <section>
-        <Heading level={1}>Our History</Heading>
-        <Text>Content coming soon.</Text>
+        <Heading level={1}>Historia</Heading>
+        <Text>Contenido próximamente.</Text>
       </section>
     </MainLayout>
   );

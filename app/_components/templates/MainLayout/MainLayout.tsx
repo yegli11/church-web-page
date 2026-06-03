@@ -3,13 +3,12 @@ import Footer from '../../organisms/Footer/Footer';
 
 interface MainLayoutProps {
   children: React.ReactNode;
-  currentPath?: string;
 }
 
-export default function MainLayout({ children, currentPath }: MainLayoutProps) {
+export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <>
-      <Header currentPath={currentPath} />
+      <Header />
       <main>{children}</main>
       <Footer />
     </>
