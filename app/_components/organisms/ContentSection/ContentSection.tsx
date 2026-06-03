@@ -21,7 +21,7 @@ export default function ContentSection({
   const isLeft = imagePosition === 'left';
 
   return (
-    <section className="py-16 px-6 md:px-12 bg-white">
+    <section className="py-16 px-6 md:px-12 bg-church-bg">
       <div className={`max-w-5xl mx-auto flex flex-col ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-10 md:gap-16`}>
 
         {/* Image */}

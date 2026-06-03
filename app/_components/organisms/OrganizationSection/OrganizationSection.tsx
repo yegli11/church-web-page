@@ -12,7 +12,7 @@ export default function OrganizationSection({
   description,
 }: OrganizationSectionProps) {
   return (
-    <section className="bg-[#f4f4f4] py-16 px-4">
+    <section className="bg-church-bg py-16 px-4">
       <div className="max-w-xl mx-auto text-center">
         <ScrollReveal direction="up">
           <h2 className="text-3xl md:text-4xl font-light text-[#7B817F] mb-6">

@@ -21,7 +21,7 @@ export default function PastoralBoardSection({
   members,
 }: PastoralBoardSectionProps) {
   return (
-    <section className="bg-white pt-6 pb-16 px-6 md:px-10 lg:px-16">
+    <section className="bg-church-bg pt-6 pb-16 px-6 md:px-10 lg:px-16">
       <div className="w-full flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
 
         {/* Text — left */}

@@ -78,7 +78,7 @@ export default function DeaconessSection({
 
   const sectionClass = isDark
     ? 'px-4 py-4'
-    : 'bg-[#f4f4f4] py-12 px-6 md:px-14';
+    : 'bg-church-bg py-12 px-6 md:px-14';
 
   const innerClass = isDark
     ? 'rounded-2xl overflow-hidden px-6 sm:px-8 md:px-12 py-10'
