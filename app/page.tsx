@@ -122,6 +122,8 @@ Fue así como, en el año 2012, esta familia obediente fue establecida al frente
           { name: 'Bladimir Hernández', role: 'Diácono', imageSrc: '/images/people/bladimir-image.jpg', imageAlt: 'Bladimir Hernández' },
           { name: 'Pedro Pereira',      role: 'Diácono', imageSrc: '/images/people/pedro-image.jpg',    imageAlt: 'Pedro Pereira' },
           { name: 'Franklin Rondón',    role: 'Diácono', imageSrc: '/images/people/franklin-image.jpg', imageAlt: 'Franklin Rondón' },
+          { name: 'Edixon Rincón',    role: 'Diácono', imageSrc: '/images/people/franklin-image.jpg', imageAlt: 'Franklin Rondón' },
+
         ]}
       />
 

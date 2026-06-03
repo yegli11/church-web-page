@@ -5,7 +5,7 @@ const EMAIL = 'iglesiaantorchadc@gmail.com';
 
 const SOCIAL_LINKS = [
   { platform: 'Facebook' as const, href: '#', label: 'Visítanos en Facebook' },
-  { platform: 'Instagram' as const, href: '#', label: 'Visítanos en Instagram' },
+  { platform: 'Instagram' as const, href: 'https://www.instagram.com/antorchadecristoven', label: 'Visítanos en Instagram' },
   { platform: 'YouTube' as const, href: '#', label: 'Visítanos en YouTube' },
 ];
 

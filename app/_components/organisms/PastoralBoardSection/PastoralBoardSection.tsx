@@ -43,7 +43,7 @@ export default function PastoralBoardSection({
           {members.map((member, i) => (
             <ScrollReveal key={member.name} direction="right" delay={i * 100}>
               <div className="flex flex-col items-center gap-2">
-                <div className="relative w-36 sm:w-48 md:w-64 lg:w-[340px] aspect-[3/4] rounded-2xl overflow-hidden">
+                <div className="relative w-36 sm:w-48 md:w-64 lg:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden">
                   <Image
                     src={member.imageSrc}
                     alt={member.imageAlt}
