@@ -2,6 +2,8 @@
 
 @theme inline {
   --font-montserrat: var(--font-montserrat);
+  --color-church-blue: #060773;
+  --color-church-gray: #7B817F;
 }
 
 :root {

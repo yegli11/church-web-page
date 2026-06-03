@@ -1,14 +1,98 @@
 import MainLayout from './_components/templates/MainLayout/MainLayout';
 import HeroSection from './_components/organisms/HeroSection/HeroSection';
+import IntroSection from './_components/organisms/IntroSection/IntroSection';
+import ContentSection from './_components/organisms/ContentSection/ContentSection';
+import PrinciplesSection from './_components/organisms/PrinciplesSection/PrinciplesSection';
+import OrganizationSection from './_components/organisms/OrganizationSection/OrganizationSection';
+import PastorSection from './_components/organisms/PastorSection/PastorSection';
+import PastoralBoardSection from './_components/organisms/PastoralBoardSection/PastoralBoardSection';
 
 export default function HomePage() {
   return (
     <MainLayout>
       <HeroSection
-        title="Bienvenidos a Antorcha de Cristo"
-        subtitle="Una comunidad de fe, esperanza y amor."
-        ctaLabel="Conócenos"
-        ctaHref="/history"
+        imageSrc="/images/backgrounds/a-place-you-belong.jpg"
+        imageAlt="Congregación de la Iglesia Evangélica Antorcha de Cristo"
+        topText="Un lugar donde tú"
+        scriptText="perteneces"
+      />
+
+      <IntroSection
+        headline={
+          <>
+            <strong>¡Hola!</strong> Queremos presentarnos y compartir
+            contigo el <strong>fundamento</strong> de esta iglesia:
+          </>
+        }
+        body="En Antorcha de Cristo creemos en Jesús como nuestra esperanza y salvación.
+              Amamos profundamente a Dios y buscamos reflejar ese amor en cada persona."
+      />
+
+      <ContentSection
+        title="Propósito Ministerial:"
+        subtitle="Responder bíblicamente a la vida"
+        imageSrc="/images/people/pastor2-image.jpg"
+        imageAlt="Pastor predicando en Antorcha de Cristo"
+        imagePosition="left"
+        paragraphs={[
+          'En Antorcha de Cristo creemos en Jesús como nuestra esperanza y salvación. Amamos profundamente a Dios y buscamos reflejar ese amor en cada persona. En Antorcha de Cristo creemos en Jesús como nuestra esperanza y sal.',
+          'En Antorcha de Cristo creemos en Jesús como nuestra esperanza y salvación. Amamos profundamente a Dios y buscamos reflejar ese amor en cada persona. En Antorcha de Cristo creemos en Jesús como nuestra esperanza y sal.',
+        ]}
+      />
+
+      <ContentSection
+        title="Misión:"
+        subtitle="Reconciliar al mundo con Dios."
+        imageSrc="/images/people/worship-image.jpg"
+        imageAlt="Congregación adorando a Dios"
+        imagePosition="right"
+        paragraphs={[
+          'En Antorcha de Cristo creemos en Jesús como nuestra esperanza y salvación. Amamos profundamente a Dios y buscamos reflejar ese amor en cada persona. En Antorcha de Cristo creemos en Jesús como nuestra esperanza y sal.',
+          'En Antorcha de Cristo creemos en Jesús como nuestra esperanza y salvación. Amamos profundamente a Dios y buscamos reflejar ese amor en cada persona. En Antorcha de Cristo creemos en Jesús como nuestra esperanza y sal.',
+        ]}
+      />
+
+      <PrinciplesSection
+        title="Nuestros principios"
+        description="Transformados por su gracia, vivimos para adorar con autenticidad, edificar la iglesia local y llevar el mensaje de su reino a cada rincón de la tierra."
+      />
+
+      <OrganizationSection
+        titleStart="Conoce cómo nos"
+        titleHighlight="organizamos"
+        description="La Iglesia Evangélica Antorcha de Cristo está formada por diferentes equipos y ministerios que trabajan juntos para servir y compartir el amor de Cristo. Cada área tiene su propio enfoque y forma parte de nuestra visión general de llevar el evangelio a todas las personas."
+      />
+
+      <PastorSection
+        title="Pastor Principal"
+        description="Toda gran historia de fe comienza con un sí. El pastor Danny Sierra, junto a su amada esposa Maylit de Sierra y sus hijos —Danny José Sierra, Danny David Sierra y Mayinot Sierra—, vivían en otro lugar cuando Dios habló a sus corazones con un propósito claro: dejar lo conocido para responder a un llamado mayor.
+Fue así como, en el año 2012, esta familia obediente fue establecida al frente de la Iglesia Evangélica Antorcha de Cristo, ubicada en Tía Juana, estado Zulia. No llegaron buscando comodidad, sino dispuestos a servir, a entregarse por completo y a guiar al pueblo de Dios con amor y fidelidad."
+        imageSrc="/images/people/pastor1-image.jpg"
+        imageAlt="Pastor principal de Antorcha de Cristo"
+        name="Danny Sierra"
+        role="Pastor"
+      />
+
+      <PastoralBoardSection
+        title="Junta Pastoral"
+        paragraphs={[
+          'La Junta Pastoral es el equipo de liderazgo que acompaña y respalda al pastor en el cuidado y la dirección de la iglesia. Conformada por personas de probada fidelidad, madurez espiritual y compromiso con la obra, esta junta funciona como la mano derecha del pastor: vela por el buen funcionamiento de la congregación, apoya en la toma de decisiones, supervisa los distintos ministerios y se asegura de que todo se realice con orden, integridad y conforme a los principios de la Palabra de Dios.',
+          'Más que un cargo, ser parte de la Junta Pastoral es un llamado al servicio. Sus integrantes están comprometidos a orar, aconsejar y trabajar en unidad para que la visión de la iglesia se cumpla, sosteniendo al pastor en su labor y sirviendo de ejemplo para toda la congregación.',
+        ]}
+        members={[
+          {
+            name: 'Nemcar Gutiérrez',
+            role: 'Miembro',
+            imageSrc: '/images/people/roberto-image.jpg',
+            imageAlt: 'Nemcar Gutiérrez, miembro de la junta pastoral',
+          },
+          {
+            name: 'Roberto Montiel',
+            role: 'Miembro',
+            imageSrc: '/images/people/roberto-image.jpg',
+            imageAlt: 'Roberto Montiel, miembro de la junta pastoral',
+          },
+        ]}
       />
     </MainLayout>
   );
