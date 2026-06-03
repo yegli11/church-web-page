@@ -150,6 +150,15 @@ Fue así como, en el año 2012, esta familia obediente fue establecida al frente
           { name: 'Yanina de Gutiérrez', role: 'Sub-secretaria', imageSrc: '/images/people/ochi-image.jpg',    imageAlt: 'Yanina de Gutiérrez' },
         ]}
       />
+
+      <DeaconessSection
+        title="Departamento de Educación Cristiana"
+        variant="dark"
+        imageHeight={750}
+        members={[
+          { name: 'Maylit de Sierra', role: 'Directora', imageSrc: '/images/people/maylit-image.jpg', imageAlt: 'Maylit de Sierra' },
+        ]}
+      />
     </MainLayout>
   );
 }
