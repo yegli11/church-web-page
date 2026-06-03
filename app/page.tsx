@@ -6,6 +6,8 @@ import PrinciplesSection from './_components/organisms/PrinciplesSection/Princip
 import OrganizationSection from './_components/organisms/OrganizationSection/OrganizationSection';
 import PastorSection from './_components/organisms/PastorSection/PastorSection';
 import PastoralBoardSection from './_components/organisms/PastoralBoardSection/PastoralBoardSection';
+import FinancialBoardSection from './_components/organisms/FinancialBoardSection/FinancialBoardSection';
+import DeaconessSection from './_components/organisms/DeaconessSection/DeaconessSection';
 
 export default function HomePage() {
   return (
@@ -92,6 +94,51 @@ Fue así como, en el año 2012, esta familia obediente fue establecida al frente
             imageSrc: '/images/people/roberto-image.jpg',
             imageAlt: 'Roberto Montiel, miembro de la junta pastoral',
           },
+        ]}
+      />
+
+      <FinancialBoardSection
+        title="Junta Financiera"
+        members={[
+          { name: 'Nemcar Gutiérrez',  role: 'Miembro', imageSrc: '/images/people/roberto-image.jpg',   imageAlt: 'Nemcar Gutiérrez' },
+          { name: 'Roberto Montiel',   role: 'Miembro', imageSrc: '/images/people/roberto-image.jpg',   imageAlt: 'Roberto Montiel' },
+          { name: 'José Daniel Marín', role: 'Miembro', imageSrc: '/images/people/joseMarin-image.jpg', imageAlt: 'José Daniel Marín' },
+          { name: 'Marina Trillo',     role: 'Miembro', imageSrc: '/images/people/marina-image.jpg',    imageAlt: 'Marina Trillo' },
+          { name: 'Franklin Rondón',   role: 'Miembro', imageSrc: '/images/people/franklin-image.jpg',  imageAlt: 'Franklin Rondón' },
+        ]}
+      />
+
+      <OrganizationSection
+        titleStart="Conoce el cuerpo"
+        titleHighlight="directivo"
+        description="La Iglesia Evangélica Antorcha de Cristo está formada por diferentes equipos y ministerios que trabajan juntos para servir y compartir el amor de Cristo. Cada área tiene su propio enfoque y forma parte de nuestra visión general de llevar el evangelio a todas las personas."
+      />
+
+      <FinancialBoardSection
+        title="Diáconos"
+        members={[
+          { name: 'Bladimir Hernández', role: 'Diácono', imageSrc: '/images/people/bladimir-image.jpg', imageAlt: 'Bladimir Hernández' },
+          { name: 'Pedro Pereira',      role: 'Diácono', imageSrc: '/images/people/pedro-image.jpg',    imageAlt: 'Pedro Pereira' },
+          { name: 'Franklin Rondón',    role: 'Diácono', imageSrc: '/images/people/franklin-image.jpg', imageAlt: 'Franklin Rondón' },
+        ]}
+      />
+
+      <DeaconessSection
+        title="Diaconisas"
+        members={[
+          { name: 'María de Pérez',     role: 'Diaconisa', imageSrc: '/images/people/maria-image.jpg', imageAlt: 'María de Pérez' },
+          { name: 'Mirla de Montiel',   role: 'Diaconisa', imageSrc: '/images/people/ochi-image.jpg',  imageAlt: 'Mirla de Montiel' },
+          { name: 'Teodora de Caldera', role: 'Diaconisa', imageSrc: '/images/people/marina-image.jpg', imageAlt: 'Teodora de Caldera' },
+        ]}
+      />
+
+      <DeaconessSection
+        title="Tesorería"
+        variant="dark"
+        imageHeight={750}
+        members={[
+          { name: 'Marina Trillo',     role: 'Tesorera',      imageSrc: '/images/people/marina-image.jpg',    imageAlt: 'Marina Trillo' },
+          { name: 'José Daniel Marín', role: 'Sub-tesorero',  imageSrc: '/images/people/joseMarin-image.jpg', imageAlt: 'José Daniel Marín' },
         ]}
       />
     </MainLayout>
