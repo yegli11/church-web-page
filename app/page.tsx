@@ -37,8 +37,8 @@ export default function HomePage() {
         imageAlt="Pastor predicando en Antorcha de Cristo"
         imagePosition="left"
         paragraphs={[
-          'En Antorcha de Cristo creemos en Jesús como nuestra esperanza y salvación. Amamos profundamente a Dios y buscamos reflejar ese amor en cada persona. En Antorcha de Cristo creemos en Jesús como nuestra esperanza y sal.',
-          'En Antorcha de Cristo creemos en Jesús como nuestra esperanza y salvación. Amamos profundamente a Dios y buscamos reflejar ese amor en cada persona. En Antorcha de Cristo creemos en Jesús como nuestra esperanza y sal.',
+            'Nuestro deseo es que cada persona no solo conozca a Dios, sino que aprenda a vivir conforme a sus principios en lo cotidiano: en el hogar, en el trabajo, en las relaciones y en cada decisión. Creemos que la Biblia tiene respuestas reales para la vida real, y por eso enseñamos una fe práctica, capaz de transformar y dar propósito.',
+            'Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia, a fin de que el hombre de Dios sea perfecto, enteramente preparado para toda buena obra. (2 Timoteo 3:16-17)',
         ]}
       />
 
@@ -49,8 +49,8 @@ export default function HomePage() {
         imageAlt="Congregación adorando a Dios"
         imagePosition="right"
         paragraphs={[
-          'En Antorcha de Cristo creemos en Jesús como nuestra esperanza y salvación. Amamos profundamente a Dios y buscamos reflejar ese amor en cada persona. En Antorcha de Cristo creemos en Jesús como nuestra esperanza y sal.',
-          'En Antorcha de Cristo creemos en Jesús como nuestra esperanza y salvación. Amamos profundamente a Dios y buscamos reflejar ese amor en cada persona. En Antorcha de Cristo creemos en Jesús como nuestra esperanza y sal.',
+          'Nuestra misión es acercar a las personas a Dios, anunciando el mensaje de reconciliación que encontramos en Cristo y mostrando, con hechos y palabras, el amor que transforma vidas.',
+          'Buscamos ser un puente entre Dios y quienes aún no lo conocen, abriendo las puertas a todo aquel que desea un nuevo comienzo. Amamos profundamente a Dios y procuramos reflejar ese amor en cada persona, sin importar su historia, restaurando corazones, familias y comunidades a través del poder del evangelio.',
         ]}
       />
 
