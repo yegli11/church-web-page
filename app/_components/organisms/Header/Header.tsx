@@ -18,16 +18,16 @@ interface NavLink {
 
 const NAV_LINKS: NavLink[] = [
   { label: 'Somos IADC', href: '/' },
-  { label: 'Historia', href: '/history' },
-  { label: 'Enseñanzas', href: '/teachings' },
+  { label: 'Historia', href: '/historia' },
+  { label: 'Enseñanzas', href: '/ensenanzas' },
   {
     label: 'Departamentos',
-    href: '/departments',
+    href: '/departamentos',
     dropdown: [
-      { label: 'Ver todos', href: '/departments' },
+      { label: 'Ver todos', href: '/departamentos' },
     ],
   },
-  { label: 'Ministerios', href: '/ministries' },
+  { label: 'Ministerios', href: '/ministerios' },
 ];
 
 const navBase = 'text-sm font-bold tracking-wide uppercase transition-colors';

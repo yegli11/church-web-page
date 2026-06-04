@@ -1,55 +1,55 @@
 ---
 description: SEO best practices for the church website (Next.js App Router)
-globs: app/**/*.tsx
+globs: app/**/*.tsx,app/**/*.ts
 alwaysApply: false
 ---
 
 # SEO Guidelines
 
-Keep the site discoverable and well-indexed. Apply these whenever you create or edit a `page.tsx` or `layout.tsx`.
+Keep the site discoverable and well-indexed. Apply these whenever you create or edit a `page.tsx`, `layout.tsx`, or routing/metadata file.
 
-## Metadata per page
+## Rutas en español
 
-Every route must export `metadata` (or `generateMetadata`) with a unique `title` and `description`. Don't rely only on the root layout.
+Las URLs deben estar en español (mejora el SEO en buscadores hispanohablantes) y usar slugs ASCII en minúscula, sin acentos ni ñ.
+
+- ✅ `/historia`, `/ensenanzas`, `/departamentos`, `/ministerios`
+- ❌ `/history`, `/teachings`, `/enseñanzas`
+
+Al renombrar una ruta, agrega un redirect 301 en `next.config.ts` (`permanent: true`) desde la ruta vieja, y actualiza los enlaces en `Header`, `Footer` y `ROUTES` en `app/_lib/site.ts`.
+
+## Metadata por página
+
+Cada `page.tsx` (server component) debe exportar `metadata` con `title`, `description` y `alternates.canonical` únicos. El layout raíz define `metadataBase`, la plantilla de título y los valores Open Graph por defecto; no los dupliques.
 
 ```tsx
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Historia | Iglesia Evangélica Antorcha de Cristo',
-  description: 'Conoce la historia y los valores de nuestra iglesia en Tía Juana, Venezuela.',
-  alternates: { canonical: '/history' },
-  openGraph: {
-    title: 'Historia | Iglesia Evangélica Antorcha de Cristo',
-    description: 'Conoce la historia y los valores de nuestra iglesia.',
-    type: 'website',
-    locale: 'es_VE',
-  },
+  title: 'Historia', // se vuelve "Historia | Iglesia Evangélica Antorcha de Cristo"
+  description: 'Conoce la historia de nuestra iglesia en Tía Juana, Venezuela.', // ~150-160 chars, en español
+  alternates: { canonical: '/historia' },
+  openGraph: { title: 'Historia | ...', description: '...', url: '/historia' },
 };
 ```
 
-- Title: ~60 chars max, descriptive, include the church name.
-- Description: ~150-160 chars, in Spanish (the site is `lang="es"`).
-- Set `metadataBase` once in the root layout so OG/canonical URLs resolve absolutely.
+- `themeColor`/`viewport` van en `export const viewport: Viewport`, NO en `metadata` (deprecado desde Next 14).
+- Mantén actualizado `app/sitemap.ts` (añade la ruta a `ROUTES`), `app/robots.ts` y `app/manifest.ts`.
+- Datos estructurados JSON-LD (`@type: Church`) viven en el layout raíz; actualízalos si cambian dirección, horario o redes.
 
-## Semantic & accessible HTML
+## HTML semántico y accesible
 
-- One `<h1>` per page; use `<h2>`/`<h3>` in order. Don't skip levels.
-- Use landmarks: `<header>`, `<main>`, `<nav>`, `<footer>`, `<section>`.
-- Every `<Image>` needs a meaningful `alt` (empty `alt=""` only for decorative images).
+- Un solo `<h1>` por página; `<h2>`/`<h3>` en orden, sin saltar niveles.
+- Usa landmarks: `<header>`, `<main>`, `<nav>`, `<footer>`, `<section>`.
+- Todo `<Image>` con `alt` descriptivo (`alt=""` solo si es decorativa).
 
-## Images & performance
+## Imágenes, enlaces y rendimiento
 
-- Always use `next/image`, set `width`/`height` or `fill`, and `priority` only for above-the-fold images.
-- Prefer descriptive file names and modern formats.
-
-## Links
-
-- Use `next/link` for internal navigation (crawlable `<a href>`).
-- External links: add `rel="noopener noreferrer"` (already done in social links).
+- Usa `next/image` con `width`/`height` o `fill`; `priority` solo above-the-fold.
+- Navegación interna con `next/link`; enlaces externos con `rel="noopener noreferrer"`.
 
 ## Don't
 
-- ❌ Duplicate the same `title`/`description` across pages.
-- ❌ Put primary content behind client-only rendering with no server HTML.
-- ❌ Use `<div onClick>` for navigation instead of real links.
+- ❌ Duplicar `title`/`description` entre páginas.
+- ❌ Rutas en inglés o con caracteres no-ASCII.
+- ❌ Contenido principal solo client-side sin HTML en el servidor.
+- ❌ `<div onClick>` para navegar en vez de enlaces reales.

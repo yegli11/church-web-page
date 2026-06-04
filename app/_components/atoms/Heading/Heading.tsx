@@ -5,6 +5,6 @@ interface HeadingProps {
 }
 
 export default function Heading({ children, level = 1, className = '' }: HeadingProps) {
-  const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+  const Tag = `h${level}` as keyof React.JSX.IntrinsicElements;
   return <Tag className={className}>{children}</Tag>;
 }

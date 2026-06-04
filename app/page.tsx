@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import MainLayout from './_components/templates/MainLayout/MainLayout';
 import HeroSection from './_components/organisms/HeroSection/HeroSection';
 import IntroSection from './_components/organisms/IntroSection/IntroSection';
@@ -8,6 +9,10 @@ import PastorSection from './_components/organisms/PastorSection/PastorSection';
 import PastoralBoardSection from './_components/organisms/PastoralBoardSection/PastoralBoardSection';
 import FinancialBoardSection from './_components/organisms/FinancialBoardSection/FinancialBoardSection';
 import DeaconessSection from './_components/organisms/DeaconessSection/DeaconessSection';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default function HomePage() {
   return (

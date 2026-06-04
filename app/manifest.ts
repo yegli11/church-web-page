@@ -1,0 +1,22 @@
+import type { MetadataRoute } from 'next';
+import { SITE_NAME, SITE_SHORT_NAME, SITE_DESCRIPTION } from './_lib/site';
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: SITE_NAME,
+    short_name: SITE_SHORT_NAME,
+    description: SITE_DESCRIPTION,
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#F0F0F0',
+    theme_color: '#060773',
+    lang: 'es',
+    icons: [
+      {
+        src: '/favicon.ico',
+        sizes: 'any',
+        type: 'image/x-icon',
+      },
+    ],
+  };
+}
