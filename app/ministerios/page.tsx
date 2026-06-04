@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import MainLayout from '../_components/templates/MainLayout/MainLayout';
 import PageBanner from '../_components/organisms/PageBanner/PageBanner';
 import MinistriesShowcase from '../_components/organisms/MinistriesShowcase/MinistriesShowcase';
+import { MINISTRIES } from '../_lib/ministries';
 
 export const metadata: Metadata = {
   title: 'Ministerios',
@@ -25,50 +26,11 @@ const BANNER_IMAGES = [
   { src: '/images/ministries/infantil-image.jpg', alt: 'Ministerio infantil' },
 ];
 
-// Fotos de personas usadas como portadas provisionales de cada ministerio.
-const PEOPLE_IMAGES = [
-  '/images/people/pastor1-image.jpg',
-  '/images/people/pastor2-image.jpg',
-  '/images/people/pedro-image.jpg',
-  '/images/people/worship-image.jpg',
-  '/images/people/bladimir-image.jpg',
-  '/images/people/marina-image.jpg',
-  '/images/people/franklin-image.jpg',
-  '/images/people/yeniret-image.jpg',
-  '/images/people/roberto-image.jpg',
-  '/images/people/maylit-image.jpg',
-  '/images/people/joseMarin-image.jpg',
-  '/images/people/ochi-image.jpg',
-  '/images/people/maria-image.jpg',
-];
-
-const MINISTRY_NAMES = [
-  'Protocolo',
-  'Ujieres',
-  'Vigilancia',
-  'Transporte',
-  'Musical',
-  'Ayuno y oración',
-  'Hombres intercesores',
-  'Mujeres intercesoras',
-  'Evangelismo estratégico',
-  'Recreación con propósito',
-  'Sonido',
-  'Conexión juvenil',
-  'Femenil',
-  'Crecimiento y desarrollo espiritual',
-  'Infantil',
-  'Consejería',
-  'Restauración y crecimiento espiritual',
-  'Eventos especiales',
-  'Multimedia',
-];
-
-const MINISTRIES = MINISTRY_NAMES.map((title, i) => ({
-  title,
-  imageSrc: PEOPLE_IMAGES[i % PEOPLE_IMAGES.length],
-  imageAlt: `Ministerio de ${title}`,
-  href: '#',
+const SHOWCASE_MINISTRIES = MINISTRIES.map((m) => ({
+  title: m.name,
+  imageSrc: m.cover,
+  imageAlt: `Ministerio de ${m.name}`,
+  href: `/ministerios/${m.slug}`,
 }));
 
 export default function MinisteriosPage() {
@@ -91,7 +53,7 @@ export default function MinisteriosPage() {
             conectar con tu <strong>familia</strong> en la fe.
           </>
         }
-        ministries={MINISTRIES}
+        ministries={SHOWCASE_MINISTRIES}
       />
     </MainLayout>
   );

@@ -11,6 +11,7 @@ interface Crumb {
 
 interface PageBannerProps {
   title: string;
+  subtitle?: string;
   images: { src: string; alt: string }[];
   crumbs: Crumb[];
   intervalMs?: number;
@@ -18,6 +19,7 @@ interface PageBannerProps {
 
 export default function PageBanner({
   title,
+  subtitle,
   images,
   crumbs,
   intervalMs = 5000,
@@ -55,6 +57,11 @@ export default function PageBanner({
       {/* Título + breadcrumb abajo a la izquierda */}
       <div className="absolute bottom-0 left-0 p-6 md:p-10 text-white">
         <h1 className="text-4xl md:text-6xl font-bold drop-shadow-md">{title}</h1>
+        {subtitle && (
+          <p className="mt-2 max-w-xl text-base md:text-lg text-white/90 drop-shadow">
+            {subtitle}
+          </p>
+        )}
         <nav aria-label="Ruta de navegación" className="mt-3">
           <ol className="flex flex-wrap items-center gap-x-2 text-xs md:text-sm font-bold tracking-widest uppercase">
             {crumbs.map((crumb, i) => (

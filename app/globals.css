@@ -17,3 +17,27 @@ body {
   color: var(--foreground);
   font-family: var(--font-montserrat), Arial, sans-serif;
 }
+
+/* ── Media Reel infinite scroll ── */
+@keyframes reel-ltr {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes reel-rtl {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.animate-reel-ltr {
+  animation: reel-ltr 45s linear infinite;
+}
+
+.animate-reel-rtl {
+  animation: reel-rtl 45s linear infinite;
+}
+
+.animate-reel-ltr:hover,
+.animate-reel-rtl:hover {
+  animation-play-state: paused;
+}
