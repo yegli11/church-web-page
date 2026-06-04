@@ -56,7 +56,40 @@ export default function HomePage() {
 
       <PrinciplesSection
         title="Nuestros principios"
-        description="Transformados por su gracia, vivimos para adorar con autenticidad, edificar la iglesia local y llevar el mensaje de su reino a cada rincón de la tierra."
+        principles={[
+          {
+            title: 'Fidelidad a la Palabra de Dios',
+            description: 'La Biblia es nuestra máxima autoridad y la guía para cada decisión, enseñanza y área de nuestra vida.',
+          },
+          {
+            title: 'Amor a Dios y al prójimo',
+            description: 'Todo lo que hacemos nace del amor: amamos a Dios sobre todas las cosas y servimos a los demás como reflejo de ese amor.',
+          },
+          {
+            title: 'Integridad',
+            description: 'Vivimos con honestidad y transparencia, siendo coherentes entre lo que creemos, lo que decimos y lo que hacemos.',
+          },
+          {
+            title: 'Servicio',
+            description: 'Seguimos el ejemplo de Jesús, que vino a servir y no a ser servido, entregándonos por el bienestar de los demás.',
+          },
+          {
+            title: 'Unidad',
+            description: 'Somos una familia espiritual que camina junta, en armonía y respeto, fortaleciéndonos los unos a los otros.',
+          },
+          {
+            title: 'Discipulado',
+            description: 'No solo buscamos que las personas conozcan a Dios, sino que crezcan, maduren en la fe y formen a otros.',
+          },
+          {
+            title: 'Oración',
+            description: 'Creemos en el poder de la oración como base de toda nuestra vida y ministerio, buscando siempre la dirección de Dios.',
+          },
+          {
+            title: 'Excelencia',
+            description: 'Damos lo mejor de nosotros en cada cosa que hacemos, porque entendemos que todo lo hacemos para la gloria de Dios.',
+          },
+        ]}
       />
 
       <OrganizationSection
