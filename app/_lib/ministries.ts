@@ -29,6 +29,12 @@ export interface MinistryVerse {
   reference: string;
 }
 
+export interface MinistryDesign {
+  src: string;
+  alt: string;
+  category?: string;
+}
+
 export interface MinistryStep {
   number: string;
   title: string;
@@ -62,6 +68,7 @@ export interface Ministry {
   quote?: string;
   verse?: MinistryVerse;
   team?: MinistryTeamMember[];
+  designs?: MinistryDesign[];
   steps?: MinistryStep[];
   socials?: MinistrySocial[];
   cta?: string;
@@ -199,6 +206,17 @@ const DETAILS: Record<string, Partial<Ministry>> = {
       { name: 'Sebastián García',  role: 'Proyección y Transmisión',                             photo: '/images/people/roberto-image.jpg',  color: '#F9A8D4' },
       { name: 'Jesús Perozo',      role: 'Proyección y Transmisión',                             photo: '/images/people/franklin-image.jpg', color: '#A7F3D0' },
       { name: 'Daniel Montiel',    role: 'Proyección y Transmisión',                             photo: '/images/people/joseMarin-image.jpg',color: '#FCD34D' },
+    ],
+    designs: [
+      { src: '/images/ministries/multimedia/dise%C3%B1os/galeria1.jpg', category: 'Diseño', alt: 'Diseño del ministerio de Multimedia' },
+      { src: '/images/ministries/multimedia/dise%C3%B1os/galeria2.jpg', category: 'Diseño', alt: 'Arte creado por el equipo de Multimedia' },
+      { src: '/images/ministries/multimedia/dise%C3%B1os/galeria3.jpg', category: 'Diseño', alt: 'Pieza visual del ministerio' },
+      { src: '/images/ministries/multimedia/dise%C3%B1os/galeria4.jpg', category: 'Diseño', alt: 'Arte para redes sociales' },
+      { src: '/images/ministries/multimedia/dise%C3%B1os/galeria5.jpg', category: 'Diseño', alt: 'Diseño gráfico del equipo' },
+      { src: '/images/ministries/multimedia/dise%C3%B1os/galeria6.jpg', category: 'Diseño', alt: 'Publicación creada por Multimedia' },
+      { src: '/images/ministries/multimedia/dise%C3%B1os/galeria7.jpg', category: 'Diseño', alt: 'Flyer del ministerio de Multimedia' },
+      { src: '/images/ministries/multimedia/dise%C3%B1os/galeria8.jpg', category: 'Diseño', alt: 'Arte gráfico para la iglesia' },
+      { src: '/images/ministries/multimedia/dise%C3%B1os/galeria9.jpg', category: 'Diseño', alt: 'Pieza creativa del equipo' },
     ],
     steps: [
       {

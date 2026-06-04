@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Logo from '../../atoms/Logo/Logo';
+import { MINISTRIES } from '../../../_lib/ministries';
 
 interface DropdownItem {
   label: string;
@@ -34,7 +35,14 @@ const NAV_LINKS: NavLink[] = [
       { label: 'ALFA - Altar Familiar', href: '/departamentos#alfa' },
     ],
   },
-  { label: 'Ministerios', href: '/ministerios' },
+  {
+    label: 'Ministerios',
+    href: '/ministerios',
+    dropdown: [
+      { label: 'Ver todos', href: '/ministerios' },
+      ...MINISTRIES.map((m) => ({ label: m.name, href: `/ministerios/${m.slug}` })),
+    ],
+  },
 ];
 
 const SOCIAL_LINKS = [
@@ -82,12 +90,22 @@ export default function Header() {
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
+  const toggleDropdown = (href: string) =>
+    setOpenDropdown((prev) => (prev === href ? null : href));
+
+  const closeDropdown = () => setOpenDropdown(null);
+
   return (
     <header className="bg-[#e8e8e8] shadow-sm sticky top-0 z-50">
+      {/* Capa invisible para cerrar dropdown al hacer click fuera */}
+      {openDropdown && (
+        <div className="fixed inset-0 z-40" onClick={closeDropdown} aria-hidden="true" />
+      )}
+
       <div className="w-full px-6 h-16 flex items-center gap-4">
 
         {/* Logo — left */}
-        <Link href="/" aria-label="Ir al inicio" className="flex-shrink-0">
+        <Link href="/" aria-label="Ir al inicio" className="flex-shrink-0" onClick={closeDropdown}>
           <Logo />
         </Link>
 
@@ -95,20 +113,18 @@ export default function Header() {
         <nav aria-label="Navegación principal" className="hidden md:flex flex-1 justify-center">
           <ul className="flex items-center gap-8">
             {NAV_LINKS.map((link) => (
-              <li key={link.href} className="relative">
+              <li key={link.href} className="relative z-50">
                 {link.dropdown ? (
-                  <div
-                    onMouseEnter={() => setOpenDropdown(link.href)}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
+                  <div>
                     <button
+                      onClick={() => toggleDropdown(link.href)}
                       aria-expanded={openDropdown === link.href}
                       aria-haspopup="true"
                       className={`flex items-center gap-1 ${navBase} ${isActive(link.href) ? navActive : navInactive}`}
                     >
                       {link.label}
                       <svg
-                        className={`w-3 h-3 transition-transform ${openDropdown === link.href ? 'rotate-180' : ''}`}
+                        className={`w-3 h-3 transition-transform duration-200 ${openDropdown === link.href ? 'rotate-180' : ''}`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -119,24 +135,38 @@ export default function Header() {
                       </svg>
                     </button>
 
-                    {openDropdown === link.href && (
-                      <ul
-                        role="menu"
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[260px] bg-white border border-gray-200 rounded-md shadow-lg py-1 z-50"
-                      >
-                        {link.dropdown.map((item) => (
-                          <li key={item.href} role="none">
-                            <Link
-                              href={item.href}
-                              role="menuitem"
-                              className={`block whitespace-nowrap px-4 py-2 ${navBase} text-[#7B817F] hover:bg-gray-50 hover:text-[#4a4f4d]`}
+                    {openDropdown === link.href && (() => {
+                      const isLong = (link.dropdown?.length ?? 0) > 10;
+                      return (
+                        <ul
+                          role="menu"
+                          className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white border border-gray-200 rounded-md shadow-lg py-1 z-50 min-w-[260px] ${
+                            isLong ? 'max-h-72 overflow-y-auto' : ''
+                          }`}
+                        >
+                          {link.dropdown.map((item, idx) => (
+                            <li
+                              key={item.href}
+                              role="none"
+                              className={idx === 0 && isLong ? 'border-b border-gray-100' : ''}
                             >
-                              {item.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                              <Link
+                                href={item.href}
+                                role="menuitem"
+                                onClick={closeDropdown}
+                                className={`block px-4 ${isLong ? 'py-1.5 text-[11px]' : 'py-2 whitespace-nowrap'} ${navBase} ${
+                                  idx === 0 && isLong
+                                    ? 'text-center text-[#060773]'
+                                    : 'text-[#7B817F] hover:bg-gray-50 hover:text-[#4a4f4d]'
+                                }`}
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                    })()}
                   </div>
                 ) : (
                   <Link

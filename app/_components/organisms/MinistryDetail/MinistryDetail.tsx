@@ -7,6 +7,7 @@ import MediaReel from '../MediaReel/MediaReel';
 import GalleryLightbox from '../GalleryLightbox/GalleryLightbox';
 import TeamSection from '../TeamSection/TeamSection';
 import JoinSteps from '../JoinSteps/JoinSteps';
+import DesignShowcase from '../DesignShowcase/DesignShowcase';
 import type { Ministry, MinistryIcon, MinistrySocial } from '../../../_lib/ministries';
 
 const blueBackground = {
@@ -283,9 +284,14 @@ export default function MinistryDetail({ ministry }: { ministry: Ministry }) {
         <SocialLinks socials={ministry.socials} />
       ) : null}
 
+      {/* ── Galería de Diseños ── */}
+      {ministry.designs?.length ? (
+        <DesignShowcase designs={ministry.designs} />
+      ) : null}
+
       {/* ── CTA ── */}
       {ministry.cta ? (
-        <section className="px-4 pb-16 md:pb-24">
+        <section className="px-4 pt-16 pb-16 md:pt-24 md:pb-24">
           <div
             style={blueBackground}
             className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] px-6 py-16 md:px-16 md:py-24 text-center text-white shadow-lg"
