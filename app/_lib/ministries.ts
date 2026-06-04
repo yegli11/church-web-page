@@ -24,6 +24,31 @@ export interface MinistryStat {
   label: string;
 }
 
+export interface MinistryVerse {
+  text: string;
+  reference: string;
+}
+
+export interface MinistryStep {
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface MinistrySocial {
+  platform: 'youtube' | 'instagram' | 'facebook' | 'tiktok';
+  url: string;
+  handle: string;
+}
+
+export interface MinistryTeamMember {
+  name: string;
+  role: string;
+  photo?: string;
+  color?: string;
+  isLeader?: boolean;
+}
+
 export interface Ministry {
   slug: string;
   name: string;
@@ -34,6 +59,11 @@ export interface Ministry {
   gallery?: MinistryImage[];
   stats?: MinistryStat[];
   reel?: string[];
+  quote?: string;
+  verse?: MinistryVerse;
+  team?: MinistryTeamMember[];
+  steps?: MinistryStep[];
+  socials?: MinistrySocial[];
   cta?: string;
 }
 
@@ -118,24 +148,18 @@ const DETAILS: Record<string, Partial<Ministry>> = {
       },
     ],
     gallery: [
-      { src: '/images/people/worship-image.jpg', alt: 'Equipo de adoración en el escenario' },
-      { src: '/images/ministries/recreacion-image.jpg', alt: 'Servicio con luces y producción' },
-      { src: '/images/ministries/conexion-image.jpg', alt: 'Transmisión de un evento' },
-      { src: '/images/people/pastor2-image.jpg', alt: 'Predicación proyectada en pantalla' },
-      { src: '/images/ministries/mujer-intercesora-image.jpg', alt: 'Cobertura de una reunión' },
-      { src: '/images/ministries/vigilancia-image.jpg', alt: 'Equipo trabajando durante el culto' },
-      { src: '/images/people/franklin-image.jpg', alt: 'Integrante del equipo de multimedia' },
-      { src: '/images/ministries/infantil-image.jpg', alt: 'Registro de actividades de la iglesia' },
-      { src: '/images/people/pastor1-image.jpg', alt: 'Momento de ministración en el culto' },
-      { src: '/images/people/bladimir-image.jpg', alt: 'Miembro del equipo en servicio' },
-      { src: '/images/people/marina-image.jpg', alt: 'Registro de un momento especial' },
-      { src: '/images/people/yeniret-image.jpg', alt: 'Integrante del ministerio' },
-      { src: '/images/people/roberto-image.jpg', alt: 'Captura durante un evento de la iglesia' },
-      { src: '/images/ministries/protocolo-image.jpg', alt: 'Cobertura de protocolo en un servicio' },
-      { src: '/images/people/ochi-image.jpg', alt: 'Momento capturado por el equipo' },
-      { src: '/images/people/maylit-image.jpg', alt: 'Registro de actividades del ministerio' },
-      { src: '/images/people/pedro-image.jpg', alt: 'Miembro del equipo de multimedia' },
-      { src: '/images/people/maria-image.jpg', alt: 'Integrante durante un evento especial' },
+      { src: '/images/ministries/multimedia/generales/general1.jpg', alt: 'Equipo de Multimedia en servicio' },
+      { src: '/images/ministries/multimedia/generales/general2.jpg', alt: 'Transmisión en vivo del culto' },
+      { src: '/images/ministries/multimedia/generales/general3.jpg', alt: 'Equipo durante un evento especial' },
+      { src: '/images/ministries/multimedia/generales/general4.jpg', alt: 'Cobertura fotográfica y de video' },
+      { src: '/images/people/worship-image.jpg',                     alt: 'Momento de adoración en el culto' },
+      { src: '/images/ministries/conexion-image.jpg',                alt: 'Evento de conexión juvenil' },
+      { src: '/images/people/franklin-image.jpg',                    alt: 'Integrante del equipo en acción' },
+      { src: '/images/ministries/recreacion-image.jpg',              alt: 'Actividad especial de la iglesia' },
+      { src: '/images/people/bladimir-image.jpg',                    alt: 'Miembro del ministerio' },
+      { src: '/images/ministries/vigilancia-image.jpg',              alt: 'Cobertura de un servicio especial' },
+      { src: '/images/people/roberto-image.jpg',                     alt: 'Registro de un momento del equipo' },
+      { src: '/images/ministries/protocolo-image.jpg',               alt: 'Protocolo en un evento de la iglesia' },
     ],
     stats: [
       { value: 200, suffix: '+', label: 'Servicios transmitidos' },
@@ -164,6 +188,50 @@ const DETAILS: Record<string, Partial<Ministry>> = {
       '/images/people/maylit-image.jpg',
       '/images/people/maria-image.jpg',
     ],
+    team: [
+      { name: 'Daniel González',   role: 'Líder Principal · Fotografía',          isLeader: true, photo: '/images/people/pastor1-image.jpg',  color: '#93C5FD' },
+      { name: 'Yeglimar Montañez', role: 'Líder Secundaria · Diseño y Redes',   isLeader: true, photo: '/images/ministries/multimedia/yeglimar-multimedia.jpg', color: '#FDA4AF' },
+      { name: 'Alejandro Montiel', role: 'Fotografía y Diseño',                                  photo: '/images/people/pedro-image.jpg',    color: '#FDE68A' },
+      { name: 'Fabiola Sayago',    role: 'Diseño y Redes Sociales',                              photo: '/images/people/yeniret-image.jpg',  color: '#C4B5FD' },
+      { name: 'Kendriana Oviedo',  role: 'Diseño y Redes Sociales',                              photo: '/images/people/maylit-image.jpg',   color: '#86EFAC' },
+      { name: 'Lohisbell Díaz',    role: 'Proyección y Transmisión',                             photo: '/images/people/maria-image.jpg',    color: '#FCA5A1' },
+      { name: 'Leonel Fabelo',     role: 'Proyección y Transmisión',                             photo: '/images/people/bladimir-image.jpg', color: '#7DD3FC' },
+      { name: 'Sebastián García',  role: 'Proyección y Transmisión',                             photo: '/images/people/roberto-image.jpg',  color: '#F9A8D4' },
+      { name: 'Jesús Perozo',      role: 'Proyección y Transmisión',                             photo: '/images/people/franklin-image.jpg', color: '#A7F3D0' },
+      { name: 'Daniel Montiel',    role: 'Proyección y Transmisión',                             photo: '/images/people/joseMarin-image.jpg',color: '#FCD34D' },
+    ],
+    steps: [
+      {
+        number: '01',
+        title: 'Sirve para Dios, no para los aplausos',
+        description: 'Todo lo que hacemos es un acto de adoración. La tecnología es el medio; glorificar a Dios es el propósito. Aquí no buscamos reconocimiento humano.',
+      },
+      {
+        number: '02',
+        title: 'Ven con un corazón dispuesto',
+        description: 'No necesitas ser experto. Necesitas actitud. Si tienes humildad y ganas de aprender, el equipo hace el resto.',
+      },
+      {
+        number: '03',
+        title: 'Comprométete con disciplina',
+        description: 'Servir en multimedia requiere puntualidad, constancia y responsabilidad en cada servicio y evento.',
+      },
+      {
+        number: '04',
+        title: 'Trabaja con amor',
+        description: 'Somos familia. Nos apoyamos, nos corregimos y crecemos juntos. El amor entre el equipo se refleja en todo lo que producimos.',
+      },
+    ],
+    socials: [
+      { platform: 'youtube',   url: 'https://youtube.com/@antorchadc',   handle: '@antorchadc' },
+      { platform: 'instagram', url: 'https://instagram.com/antorchadc',  handle: '@antorchadc' },
+      { platform: 'facebook',  url: 'https://facebook.com/antorchadc',   handle: 'Antorcha DC' },
+    ],
+    quote: 'No son solo cámaras y pantallas — es el evangelio llegando más lejos.',
+    verse: {
+      text: 'Proclamad entre las naciones su gloria, en todos los pueblos sus maravillas.',
+      reference: 'Salmos 96:3',
+    },
     cta: '¿Te apasiona la tecnología, el diseño o la creación de contenido? Únete al equipo de Multimedia y pon tus talentos al servicio de Dios.',
   },
 };

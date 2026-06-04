@@ -52,13 +52,19 @@ export default function GalleryLightbox({ images }: { images: MinistryImage[] })
                 onClick={() => setActive(i)}
                 aria-label={`Ver ${image.alt}`}
                 className="group relative h-full w-full overflow-hidden rounded-2xl shadow-sm cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#060773]"
+                style={featured ? { backgroundColor: '#111' } : undefined}
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
+                  quality={90}
                   sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover grayscale-[35%] transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  className={`grayscale-[35%] transition-all duration-700 group-hover:grayscale-0 ${
+                    featured
+                      ? 'object-contain object-center group-hover:scale-[1.03]'
+                      : 'object-cover object-top group-hover:scale-105'
+                  }`}
                 />
                 <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="bg-black/40 backdrop-blur-sm rounded-full p-2.5">
