@@ -61,6 +61,7 @@ const MINISTRY_NAMES = [
   'Consejería',
   'Restauración y crecimiento espiritual',
   'Eventos especiales',
+  'Multimedia',
 ];
 
 const MINISTRIES = MINISTRY_NAMES.map((title, i) => ({

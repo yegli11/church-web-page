@@ -25,6 +25,13 @@ const NAV_LINKS: NavLink[] = [
     href: '/departamentos',
     dropdown: [
       { label: 'Ver todos', href: '/departamentos' },
+      { label: 'Educación Cristiana (E.B.D)', href: '/departamentos#educacion-cristiana' },
+      { label: 'Fundación Nehemías', href: '/departamentos#fundacion-nehemias' },
+      { label: 'Grupos de Propósito y Servicios (GPS)', href: '/departamentos#gps' },
+      { label: 'Junta Financiera', href: '/departamentos#junta-financiera' },
+      { label: 'Junta Pastoral', href: '/departamentos#junta-pastoral' },
+      { label: 'Cuerpo Directivo', href: '/departamentos#cuerpo-directivo' },
+      { label: 'ALFA - Altar Familiar', href: '/departamentos#alfa' },
     ],
   },
   { label: 'Ministerios', href: '/ministerios' },
@@ -82,14 +89,14 @@ export default function Header() {
                     {openDropdown === link.href && (
                       <ul
                         role="menu"
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[180px] bg-white border border-gray-200 rounded-md shadow-lg py-1 z-50"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[260px] bg-white border border-gray-200 rounded-md shadow-lg py-1 z-50"
                       >
                         {link.dropdown.map((item) => (
                           <li key={item.href} role="none">
                             <Link
                               href={item.href}
                               role="menuitem"
-                              className={`block px-4 py-2 ${navBase} text-[#7B817F] hover:bg-gray-50 hover:text-[#4a4f4d]`}
+                              className={`block whitespace-nowrap px-4 py-2 ${navBase} text-[#7B817F] hover:bg-gray-50 hover:text-[#4a4f4d]`}
                             >
                               {item.label}
                             </Link>
