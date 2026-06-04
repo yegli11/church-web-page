@@ -1,0 +1,55 @@
+---
+description: SEO best practices for the church website (Next.js App Router)
+globs: app/**/*.tsx
+alwaysApply: false
+---
+
+# SEO Guidelines
+
+Keep the site discoverable and well-indexed. Apply these whenever you create or edit a `page.tsx` or `layout.tsx`.
+
+## Metadata per page
+
+Every route must export `metadata` (or `generateMetadata`) with a unique `title` and `description`. Don't rely only on the root layout.
+
+```tsx
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Historia | Iglesia Evangélica Antorcha de Cristo',
+  description: 'Conoce la historia y los valores de nuestra iglesia en Tía Juana, Venezuela.',
+  alternates: { canonical: '/history' },
+  openGraph: {
+    title: 'Historia | Iglesia Evangélica Antorcha de Cristo',
+    description: 'Conoce la historia y los valores de nuestra iglesia.',
+    type: 'website',
+    locale: 'es_VE',
+  },
+};
+```
+
+- Title: ~60 chars max, descriptive, include the church name.
+- Description: ~150-160 chars, in Spanish (the site is `lang="es"`).
+- Set `metadataBase` once in the root layout so OG/canonical URLs resolve absolutely.
+
+## Semantic & accessible HTML
+
+- One `<h1>` per page; use `<h2>`/`<h3>` in order. Don't skip levels.
+- Use landmarks: `<header>`, `<main>`, `<nav>`, `<footer>`, `<section>`.
+- Every `<Image>` needs a meaningful `alt` (empty `alt=""` only for decorative images).
+
+## Images & performance
+
+- Always use `next/image`, set `width`/`height` or `fill`, and `priority` only for above-the-fold images.
+- Prefer descriptive file names and modern formats.
+
+## Links
+
+- Use `next/link` for internal navigation (crawlable `<a href>`).
+- External links: add `rel="noopener noreferrer"` (already done in social links).
+
+## Don't
+
+- ❌ Duplicate the same `title`/`description` across pages.
+- ❌ Put primary content behind client-only rendering with no server HTML.
+- ❌ Use `<div onClick>` for navigation instead of real links.
