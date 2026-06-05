@@ -7,7 +7,15 @@ const bg = {
   backgroundPosition: 'center',
 };
 
-export default function JoinSteps({ steps }: { steps: MinistryStep[] }) {
+export default function JoinSteps({
+  steps,
+  eyebrow = 'Forma parte',
+  title = '¿Cómo ser parte del equipo?',
+}: {
+  steps: MinistryStep[];
+  eyebrow?: string;
+  title?: string;
+}) {
   return (
     <section style={bg} className="px-6 md:px-10 py-20 md:py-28">
       <div className="mx-auto max-w-5xl">
@@ -16,10 +24,10 @@ export default function JoinSteps({ steps }: { steps: MinistryStep[] }) {
         <div className="mb-16 text-center">
           <ScrollReveal direction="up">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/35">
-              Forma parte
+              {eyebrow}
             </p>
             <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight text-white">
-              ¿Cómo ser parte del equipo?
+              {title}
             </h2>
           </ScrollReveal>
         </div>
@@ -32,10 +40,16 @@ export default function JoinSteps({ steps }: { steps: MinistryStep[] }) {
                 <div className="flex flex-col gap-5">
                   {/* Número + línea */}
                   <div className="flex items-center gap-4">
-                    <span className="text-2xl font-black tabular-nums text-white/60 flex-shrink-0 leading-none">
+                    <span
+                      className="text-2xl font-black tabular-nums flex-shrink-0 leading-none"
+                      style={{ color: step.color ?? 'rgba(255,255,255,0.6)' }}
+                    >
                       {step.number}
                     </span>
-                    <div className="flex-1 border-t border-white/20" />
+                    <div
+                      className="flex-1 border-t"
+                      style={{ borderColor: step.color ? `${step.color}40` : 'rgba(255,255,255,0.2)' }}
+                    />
                   </div>
 
                   {/* Contenido */}

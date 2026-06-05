@@ -50,3 +50,27 @@ body {
 .animate-reel-rtl:hover {
   animation-play-state: paused;
 }
+
+/* ── Kids ministry floating blobs ── */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+.animate-float-slow       { animation: float-slow 5s   ease-in-out infinite; }
+.animate-float-slow-delay { animation: float-slow 5s   ease-in-out infinite 1.8s; }
+.animate-float-fast       { animation: float-fast 3s   ease-in-out infinite; }
+
+/* ── Mission Pillars tab content transition ── */
+@keyframes content-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-content-fade-up {
+  animation: content-fade-up 0.35s ease-out both;
+}

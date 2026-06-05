@@ -7,6 +7,8 @@ import MediaReel from '../MediaReel/MediaReel';
 import GalleryLightbox from '../GalleryLightbox/GalleryLightbox';
 import TeamSection from '../TeamSection/TeamSection';
 import JoinSteps from '../JoinSteps/JoinSteps';
+import MissionPillars from '../MissionPillars/MissionPillars';
+import AlternatingSections from '../AlternatingSections/AlternatingSections';
 import DesignShowcase from '../DesignShowcase/DesignShowcase';
 import type { Ministry, MinistryIcon, MinistrySocial } from '../../../_lib/ministries';
 
@@ -39,6 +41,12 @@ const ICON_PATHS: Record<MinistryIcon, React.ReactNode> = {
   ),
   sparkles: (
     <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.5 6.5L22 12l-6.5 2.5L13 21l-2.5-6.5L4 12l6.5-2.5L13 1z" />
+  ),
+  book: (
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+  ),
+  heart: (
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
   ),
 };
 
@@ -189,6 +197,11 @@ export default function MinistryDetail({ ministry }: { ministry: Ministry }) {
         </section>
       )}
 
+      {/* ── Secciones alternadas (foto + texto) ── */}
+      {ministry.sections?.length ? (
+        <AlternatingSections sections={ministry.sections} />
+      ) : null}
+
       {/* ── Stats animados ── */}
       {ministry.stats?.length ? (
         <StatsRow stats={ministry.stats} />
@@ -205,8 +218,26 @@ export default function MinistryDetail({ ministry }: { ministry: Ministry }) {
               {ministry.features.map((feature, i) => (
                 <li key={feature.title}>
                   <ScrollReveal direction="up" delay={(i % 3) * 80}>
-                    <article className="group flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-[#060773]/20">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#060773]/[0.07] text-[#060773] transition-all duration-300 group-hover:bg-[#060773] group-hover:text-white group-hover:scale-110">
+                    <article
+                      className="group flex flex-col gap-4 rounded-2xl border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+                      style={feature.color ? {
+                        backgroundColor: `${feature.color}12`,
+                        borderColor: `${feature.color}40`,
+                      } : {
+                        backgroundColor: '#ffffff',
+                        borderColor: 'rgb(243 244 246)',
+                      }}
+                    >
+                      <div
+                        className="flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110"
+                        style={feature.color ? {
+                          backgroundColor: feature.color,
+                          color: '#ffffff',
+                        } : {
+                          backgroundColor: 'rgba(6,7,115,0.07)',
+                          color: '#060773',
+                        }}
+                      >
                         <FeatureIcon icon={feature.icon} />
                       </div>
                       <div>
@@ -259,7 +290,7 @@ export default function MinistryDetail({ ministry }: { ministry: Ministry }) {
 
       {/* ── Media Reel — franja de fotos ── */}
       {ministry.reel?.length ? (
-        <MediaReel images={ministry.reel} label="Momentos capturados" />
+        <MediaReel images={ministry.reel} label="Momentos capturados" colors={ministry.reelColors} />
       ) : null}
 
       {/* ── Galería con lightbox ── */}
@@ -274,9 +305,18 @@ export default function MinistryDetail({ ministry }: { ministry: Ministry }) {
         </section>
       ) : null}
 
-      {/* ── ¿Cómo ser parte? ── */}
+      {/* ── Identidad: misión / visión / alcance / propósito ── */}
+      {ministry.pillars?.length ? (
+        <MissionPillars pillars={ministry.pillars} />
+      ) : null}
+
+      {/* ── ¿Cómo ser parte? / flujo de eventos ── */}
       {ministry.steps?.length ? (
-        <JoinSteps steps={ministry.steps} />
+        <JoinSteps
+          steps={ministry.steps}
+          eyebrow={ministry.stepsEyebrow}
+          title={ministry.stepsTitle}
+        />
       ) : null}
 
       {/* ── Redes sociales ── */}
@@ -309,7 +349,7 @@ export default function MinistryDetail({ ministry }: { ministry: Ministry }) {
       ) : null}
 
       {/* ── Volver ── */}
-      <div className="bg-church-bg pb-16 text-center">
+      <div className="bg-church-bg pt-16 pb-20 text-center">
         <Link
           href="/ministerios"
           className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#060773]"
