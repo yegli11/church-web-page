@@ -1,0 +1,55 @@
+---
+description: SEO best practices for the church website (Next.js App Router)
+globs: app/**/*.tsx,app/**/*.ts
+alwaysApply: false
+---
+
+# SEO Guidelines
+
+Keep the site discoverable and well-indexed. Apply these whenever you create or edit a `page.tsx`, `layout.tsx`, or routing/metadata file.
+
+## Rutas en español
+
+Las URLs deben estar en español (mejora el SEO en buscadores hispanohablantes) y usar slugs ASCII en minúscula, sin acentos ni ñ.
+
+- ✅ `/historia`, `/ensenanzas`, `/departamentos`, `/ministerios`
+- ❌ `/history`, `/teachings`, `/enseñanzas`
+
+Al renombrar una ruta, agrega un redirect 301 en `next.config.ts` (`permanent: true`) desde la ruta vieja, y actualiza los enlaces en `Header`, `Footer` y `ROUTES` en `app/_lib/site.ts`.
+
+## Metadata por página
+
+Cada `page.tsx` (server component) debe exportar `metadata` con `title`, `description` y `alternates.canonical` únicos. El layout raíz define `metadataBase`, la plantilla de título y los valores Open Graph por defecto; no los dupliques.
+
+```tsx
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Historia', // se vuelve "Historia | Iglesia Evangélica Antorcha de Cristo"
+  description: 'Conoce la historia de nuestra iglesia en Tía Juana, Venezuela.', // ~150-160 chars, en español
+  alternates: { canonical: '/historia' },
+  openGraph: { title: 'Historia | ...', description: '...', url: '/historia' },
+};
+```
+
+- `themeColor`/`viewport` van en `export const viewport: Viewport`, NO en `metadata` (deprecado desde Next 14).
+- Mantén actualizado `app/sitemap.ts` (añade la ruta a `ROUTES`), `app/robots.ts` y `app/manifest.ts`.
+- Datos estructurados JSON-LD (`@type: Church`) viven en el layout raíz; actualízalos si cambian dirección, horario o redes.
+
+## HTML semántico y accesible
+
+- Un solo `<h1>` por página; `<h2>`/`<h3>` en orden, sin saltar niveles.
+- Usa landmarks: `<header>`, `<main>`, `<nav>`, `<footer>`, `<section>`.
+- Todo `<Image>` con `alt` descriptivo (`alt=""` solo si es decorativa).
+
+## Imágenes, enlaces y rendimiento
+
+- Usa `next/image` con `width`/`height` o `fill`; `priority` solo above-the-fold.
+- Navegación interna con `next/link`; enlaces externos con `rel="noopener noreferrer"`.
+
+## Don't
+
+- ❌ Duplicar `title`/`description` entre páginas.
+- ❌ Rutas en inglés o con caracteres no-ASCII.
+- ❌ Contenido principal solo client-side sin HTML en el servidor.
+- ❌ `<div onClick>` para navegar en vez de enlaces reales.
