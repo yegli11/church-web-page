@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import MainLayout from '../../_components/templates/MainLayout/MainLayout';
 import MinistryDetail from '../../_components/organisms/MinistryDetail/MinistryDetail';
+import KidsMinistryDetail from '../../_components/organisms/KidsMinistryDetail/KidsMinistryDetail';
 import { getMinistry, getMinistrySlugs } from '../../_lib/ministries';
 
 interface PageProps {
@@ -47,7 +48,10 @@ export default async function MinistryPage({ params }: PageProps) {
 
   return (
     <MainLayout>
-      <MinistryDetail ministry={ministry} />
+      {ministry.slug === 'infantil'
+        ? <KidsMinistryDetail ministry={ministry} />
+        : <MinistryDetail ministry={ministry} />
+      }
     </MainLayout>
   );
 }

@@ -12,6 +12,7 @@ export default function Logo({ className = '' }: LogoProps) {
           src="/images/logos/logo-antorcha-no-info.png"
           alt="Iglesia Evangélica Antorcha de Cristo"
           fill
+          sizes="56px"
           className="object-contain"
           priority
         />
