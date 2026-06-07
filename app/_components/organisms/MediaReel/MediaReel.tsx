@@ -4,6 +4,7 @@ interface MediaReelProps {
   images: string[];
   label?: string;
   colors?: string[];
+  bg?: string;
 }
 
 function ReelRow({ imgs, direction, colors }: { imgs: string[]; direction: 'ltr' | 'rtl'; colors?: string[] }) {
@@ -37,13 +38,13 @@ function ReelRow({ imgs, direction, colors }: { imgs: string[]; direction: 'ltr'
   );
 }
 
-export default function MediaReel({ images, label, colors }: MediaReelProps) {
+export default function MediaReel({ images, label, colors, bg }: MediaReelProps) {
   const half = Math.ceil(images.length / 2);
   const row1 = images.slice(0, half);
   const row2 = images.slice(half);
 
   return (
-    <section className="bg-[#060773] py-16 overflow-hidden">
+    <section className="py-16 overflow-hidden" style={{ background: bg ?? '#060773' }}>
       {label && (
         <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-white/35 mb-10">
           {label}

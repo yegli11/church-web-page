@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ScrollReveal from '../../atoms/ScrollReveal/ScrollReveal';
 import type { MinistryPillar } from '../../../_lib/ministries';
 
-const eyebrow = 'text-xs font-bold uppercase tracking-[0.25em] text-[#060773]';
+const DEFAULT_COLOR = '#060773';
 
 const PILLAR_ICONS: Record<string, React.ReactNode> = {
   mision: (
@@ -34,9 +34,19 @@ const PILLAR_ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
+function FallbackIcon() {
+  return (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+    </svg>
+  );
+}
+
 export default function MissionPillars({ pillars }: { pillars: MinistryPillar[] }) {
   const [active, setActive] = useState(0);
   const current = pillars[active];
+  const accent = current.color ?? DEFAULT_COLOR;
+  const hasCustomColors = pillars.some((p) => p.color);
 
   return (
     <section className="bg-white px-6 md:px-10 py-20 md:py-28 overflow-hidden">
@@ -45,49 +55,75 @@ export default function MissionPillars({ pillars }: { pillars: MinistryPillar[] 
         {/* Header */}
         <div className="text-center mb-14">
           <ScrollReveal direction="up">
-            <p className={eyebrow}>Nuestra identidad</p>
+            <p
+              className="text-xs font-bold uppercase tracking-[0.25em] mb-1.5 transition-colors duration-500"
+              style={{ color: accent }}
+            >
+              Nuestra identidad
+            </p>
             <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight text-[#1a1a1b]">
               Lo que nos define
             </h2>
           </ScrollReveal>
         </div>
 
-        {/* Tab grid — 2×2 on mobile, dynamic cols on md+ */}
+        {/* Tab grid */}
         <ScrollReveal direction="up" delay={100}>
           <div className={`grid gap-3 mb-10 grid-cols-2 ${pillars.length === 5 ? 'sm:grid-cols-3 md:grid-cols-5' : 'md:grid-cols-4'}`}>
-            {pillars.map((pillar, i) => (
-              <button
-                key={pillar.id}
-                onClick={() => setActive(i)}
-                className={`group flex flex-col items-center gap-2.5 rounded-2xl border p-5 text-center transition-all duration-300 cursor-pointer ${
-                  active === i
-                    ? 'bg-[#060773] border-[#060773] text-white shadow-lg shadow-[#060773]/20 scale-[1.02]'
-                    : 'bg-[#F8F8F8] border-gray-100 text-[#1a1a1b] hover:border-[#060773]/30 hover:bg-[#060773]/5 hover:-translate-y-0.5'
-                }`}
-              >
-                <span className={`transition-colors duration-300 ${active === i ? 'text-white' : 'text-[#060773]'}`}>
-                  {PILLAR_ICONS[pillar.id] ?? (
-                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                    </svg>
+            {pillars.map((pillar, i) => {
+              const color = pillar.color ?? DEFAULT_COLOR;
+              const isActive = active === i;
+              return (
+                <button
+                  key={pillar.id}
+                  onClick={() => setActive(i)}
+                  className={`group flex flex-col items-center gap-2.5 rounded-2xl border p-5 text-center transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? 'text-white scale-[1.03]'
+                      : 'bg-[#F8F8F8] border-gray-100 text-[#1a1a1b] hover:-translate-y-1'
+                  }`}
+                  style={isActive ? {
+                    backgroundColor: color,
+                    borderColor: color,
+                    boxShadow: `0 8px 28px ${color}45`,
+                  } : undefined}
+                >
+                  <span
+                    className="transition-colors duration-300"
+                    style={{ color: isActive ? '#ffffff' : color }}
+                  >
+                    {PILLAR_ICONS[pillar.id] ?? <FallbackIcon />}
+                  </span>
+                  <span className="font-bold text-sm tracking-tight leading-tight">
+                    {pillar.title}
+                  </span>
+                  {/* Dot indicator */}
+                  {hasCustomColors && !isActive && (
+                    <span
+                      className="w-1.5 h-1.5 rounded-full opacity-60"
+                      style={{ backgroundColor: color }}
+                    />
                   )}
-                </span>
-                <span className="font-bold text-sm tracking-tight leading-tight">
-                  {pillar.title}
-                </span>
-              </button>
-            ))}
+                </button>
+              );
+            })}
           </div>
         </ScrollReveal>
 
         {/* Content panel */}
         <ScrollReveal direction="up" delay={150}>
-          <div className="relative rounded-3xl bg-[#F8F9FF] border border-[#060773]/10 px-8 py-10 md:px-14 md:py-14 overflow-hidden min-h-[220px]">
-
+          <div
+            className="relative rounded-3xl px-8 py-10 md:px-14 md:py-14 overflow-hidden min-h-[220px] transition-colors duration-500"
+            style={{
+              backgroundColor: `${accent}0D`,
+              border: `1px solid ${accent}28`,
+            }}
+          >
             {/* Decorative background number */}
             <span
               aria-hidden="true"
-              className="absolute -bottom-4 -right-2 text-[10rem] font-black text-[#060773]/[0.045] leading-none select-none pointer-events-none"
+              className="absolute -bottom-4 -right-2 text-[10rem] font-black leading-none select-none pointer-events-none transition-colors duration-500"
+              style={{ color: `${accent}0D` }}
             >
               {`0${active + 1}`}
             </span>
@@ -95,12 +131,23 @@ export default function MissionPillars({ pillars }: { pillars: MinistryPillar[] 
             {/* Animated content — key forces remount → re-runs CSS animation */}
             <div key={active} className="animate-content-fade-up relative">
               <div className="flex items-start gap-5 mb-6">
-                <div className="flex-shrink-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#060773] text-white shadow-md">
+                <div
+                  className="flex-shrink-0 flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-lg transition-all duration-500"
+                  style={{
+                    backgroundColor: accent,
+                    boxShadow: `0 6px 20px ${accent}45`,
+                  }}
+                >
                   {PILLAR_ICONS[current.id] ?? null}
                 </div>
                 <div>
                   {current.tagline && (
-                    <p className={`${eyebrow} mb-1`}>{current.tagline}</p>
+                    <p
+                      className="text-xs font-bold uppercase tracking-[0.25em] mb-1 transition-colors duration-500"
+                      style={{ color: accent }}
+                    >
+                      {current.tagline}
+                    </p>
                   )}
                   <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1b]">
                     {current.title}

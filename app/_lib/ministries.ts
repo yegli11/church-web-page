@@ -50,6 +50,7 @@ export interface MinistryPillar {
   title: string;
   tagline?: string;
   description: string;
+  color?: string;
 }
 
 export interface MinistrySection {
@@ -85,6 +86,7 @@ export interface Ministry {
   stats?: MinistryStat[];
   reel?: string[];
   reelColors?: string[];
+  reelBg?: string;
   quote?: string;
   verse?: MinistryVerse;
   team?: MinistryTeamMember[];
@@ -364,6 +366,134 @@ const DETAILS: Record<string, Partial<Ministry>> = {
       reference: 'Marcos 10:14',
     },
   },
+  femenil: {
+    cover: '/images/ministries/mujer-intercesora-image.jpg',
+    tagline: 'Mujeres que brillan con la luz de Dios',
+    description: [
+      'El Ministerio Femenil es un espacio creado especialmente para las mujeres de la iglesia: un lugar donde pueden encontrarse, crecer en la fe, sanar y descubrir el llamado que Dios tiene para cada una de ellas.',
+      'Organizamos encuentros, retiros, estudios bíblicos y momentos de comunión donde el amor de Dios se manifiesta de manera especial en el corazón de cada mujer. Creemos que ninguna mujer debe enfrentar sus batallas sola.',
+    ],
+    pillars: [
+      {
+        id: 'mision',
+        title: 'Misión',
+        tagline: 'Por qué existimos',
+        description: 'Fortalecer la fe, el carácter y la identidad de las mujeres de la iglesia a través de la Palabra de Dios, la oración y la comunión, para que cada una viva plenamente el propósito que Dios tiene para su vida.',
+        color: '#F2619C',
+      },
+      {
+        id: 'vision',
+        title: 'Visión',
+        tagline: 'Hacia dónde vamos',
+        description: 'Ser un ministerio que forme mujeres íntegras, llenas del Espíritu Santo, capaces de transformar su familia, su comunidad y su generación con el amor y la verdad de Dios. Soñamos con mujeres que iluminen cada espacio donde estén.',
+        color: '#D6BEEA',
+      },
+      {
+        id: 'alcance',
+        title: 'Alcance',
+        tagline: 'A quién llegamos',
+        description: 'Llegar a cada mujer de la iglesia y extender la invitación a mujeres de la comunidad, para que ninguna enfrente sus batallas sola. Juntas somos más fuertes, y cada mujer que llega transforma el ambiente a su alrededor.',
+        color: '#93ABD9',
+      },
+      {
+        id: 'proposito',
+        title: 'Propósito',
+        tagline: 'El corazón de todo',
+        description: 'Crear un ambiente de amor, confianza y crecimiento donde las mujeres puedan ser auténticas, sanar sus heridas, desarrollar sus dones y apoyarse mutuamente como verdaderas hermanas en la fe.',
+        color: '#F98BA9',
+      },
+      {
+        id: 'funciones',
+        title: 'Funciones',
+        tagline: 'Lo que hacemos',
+        description: 'Organizar encuentros, retiros espirituales, estudios bíblicos, actividades de comunión y espacios de consejería diseñados para que cada mujer crezca, sane y desarrolle todo el potencial que Dios puso en ella.',
+        color: '#F4D77A',
+      },
+    ],
+    stats: [
+      { value: 60,  suffix: '+', label: 'Mujeres conectadas' },
+      { value: 12,  suffix: '+', label: 'Eventos realizados' },
+      { value: 4,   suffix: '+', label: 'Años de ministerio' },
+      { value: 3,   suffix: '+', label: 'Retiros espirituales' },
+    ],
+    features: [
+      {
+        title: 'Encuentros y retiros',
+        description: 'Espacios de reflexión, oración y adoración exclusivos para mujeres, donde el Espíritu Santo trabaja profundamente en cada corazón.',
+        icon: 'sparkles',
+        color: '#F2619C',
+      },
+      {
+        title: 'Estudio bíblico',
+        description: 'Profundizamos juntas en la Palabra de Dios para crecer en sabiduría y aplicar su verdad a cada área de la vida cotidiana.',
+        icon: 'book',
+        color: '#93ABD9',
+      },
+      {
+        title: 'Actividades de comunión',
+        description: 'Momentos de compañerismo, dinámicas y celebraciones que fortalecen los lazos entre las hermanas y construyen amistad genuina.',
+        icon: 'team',
+        color: '#F4D77A',
+      },
+      {
+        title: 'Apoyo y consejería',
+        description: 'Un espacio seguro donde las mujeres pueden hablar, ser escuchadas y recibir orientación y amor basado en la Palabra de Dios.',
+        icon: 'heart',
+        color: '#D6BEEA',
+      },
+      {
+        title: 'Formación de líderes',
+        description: 'Identificamos y desarrollamos el potencial de liderazgo en cada mujer, preparándolas para servir con excelencia y propósito.',
+        icon: 'broadcast',
+        color: '#F98BA9',
+      },
+      {
+        title: 'Conexión familiar',
+        description: 'Actividades que fortalecen el rol de la mujer como pilar del hogar, inspirando a cada mamá, hija y hermana a brillar.',
+        icon: 'social',
+        color: '#B7C96A',
+      },
+    ],
+    gallery: [
+      { src: '/images/people/marina-image.jpg',                    alt: 'Momento femenil en la iglesia' },
+      { src: '/images/people/yeniret-image.jpg',                   alt: 'Hermana en tiempo de adoración' },
+      { src: '/images/people/maylit-image.jpg',                    alt: 'Reunión del ministerio femenil' },
+      { src: '/images/people/ochi-image.jpg',                      alt: 'Tiempo de oración femenil' },
+      { src: '/images/people/maria-image.jpg',                     alt: 'Actividad especial de mujeres' },
+      { src: '/images/ministries/mujer-intercesora-image.jpg',     alt: 'Mujer en intercesión' },
+      { src: '/images/ministries/conexion-image.jpg',              alt: 'Encuentro femenil especial' },
+      { src: '/images/ministries/recreacion-image.jpg',            alt: 'Actividad de comunión femenil' },
+    ],
+    team: [
+      { name: 'María Elena Suárez', role: 'Directora Principal',      isLeader: true, photo: '/images/people/marina-image.jpg',   color: '#F2619C' },
+      { name: 'Gloria Mendoza',     role: 'Coordinadora de Eventos',                  photo: '/images/people/yeniret-image.jpg',  color: '#D6BEEA' },
+      { name: 'Carmen Rosa Díaz',   role: 'Estudio Bíblico',                          photo: '/images/people/maylit-image.jpg',   color: '#F4D77A' },
+      { name: 'Daniela Flores',     role: 'Apoyo y Consejería',                       photo: '/images/people/ochi-image.jpg',     color: '#93ABD9' },
+      { name: 'Patricia Mora',      role: 'Comunicación y Diseño',                    photo: '/images/people/maria-image.jpg',    color: '#F98BA9' },
+      { name: 'Valentina Cruz',     role: 'Conexión Juvenil Femenil',                 photo: '/images/people/worship-image.jpg',  color: '#B7C96A' },
+    ],
+    reel: [
+      '/images/people/marina-image.jpg',
+      '/images/people/yeniret-image.jpg',
+      '/images/people/maylit-image.jpg',
+      '/images/people/ochi-image.jpg',
+      '/images/people/maria-image.jpg',
+      '/images/ministries/mujer-intercesora-image.jpg',
+      '/images/ministries/conexion-image.jpg',
+      '/images/ministries/recreacion-image.jpg',
+      '/images/people/worship-image.jpg',
+      '/images/people/pastor2-image.jpg',
+      '/images/people/franklin-image.jpg',
+      '/images/people/roberto-image.jpg',
+    ],
+    reelColors: ['#F2619C', '#E7BEF8', '#F98BA9', '#D6BEEA', '#F4D77A', '#B7C96A', '#93ABD9', '#FF8F45'],
+    reelBg: 'linear-gradient(135deg, #7B1548 0%, #C04B80 60%, #E9628F 100%)',
+    quote: 'No somos las mismas después de haber estado en la presencia de Dios juntas.',
+    verse: {
+      text: 'Engañosa es la gracia, y vana la hermosura; la mujer que teme a Jehová, ésa será alabada.',
+      reference: 'Proverbios 31:30',
+    },
+  },
   multimedia: {
     cover: '/images/people/worship-image.jpg',
     tagline: 'Tecnología al servicio del Reino',
@@ -445,16 +575,16 @@ const DETAILS: Record<string, Partial<Ministry>> = {
       '/images/people/maria-image.jpg',
     ],
     team: [
-      { name: 'Daniel González',   role: 'Líder Principal · Fotografía',          isLeader: true, photo: '/images/people/pastor1-image.jpg',  color: '#93C5FD' },
-      { name: 'Yeglimar Montañez', role: 'Líder Secundaria · Diseño y Redes',   isLeader: true, photo: '/images/ministries/multimedia/yeglimar-multimedia.jpg', color: '#FDA4AF' },
-      { name: 'Alejandro Montiel', role: 'Fotografía y Diseño',                                  photo: '/images/people/pedro-image.jpg',    color: '#FDE68A' },
-      { name: 'Fabiola Sayago',    role: 'Diseño y Redes Sociales',                              photo: '/images/people/yeniret-image.jpg',  color: '#C4B5FD' },
-      { name: 'Kendriana Oviedo',  role: 'Diseño y Redes Sociales',                              photo: '/images/people/maylit-image.jpg',   color: '#86EFAC' },
-      { name: 'Lohisbell Díaz',    role: 'Proyección y Transmisión',                             photo: '/images/people/maria-image.jpg',    color: '#FCA5A1' },
-      { name: 'Leonel Fabelo',     role: 'Proyección y Transmisión',                             photo: '/images/people/bladimir-image.jpg', color: '#7DD3FC' },
-      { name: 'Sebastián García',  role: 'Proyección y Transmisión',                             photo: '/images/people/roberto-image.jpg',  color: '#F9A8D4' },
-      { name: 'Jesús Perozo',      role: 'Proyección y Transmisión',                             photo: '/images/people/franklin-image.jpg', color: '#A7F3D0' },
-      { name: 'Daniel Montiel',    role: 'Proyección y Transmisión',                             photo: '/images/people/joseMarin-image.jpg',color: '#FCD34D' },
+      { name: 'Daniel González',   role: 'Líder Principal · Fotografía',        isLeader: true, photo: '/images/ministries/multimedia/integrantes/you-multimedia.jpg',   color: '#93C5FD' },
+      { name: 'Yeglimar Montanez', role: 'Líder Secundaria · Diseño y Redes Sociales', isLeader: true, photo: '/images/ministries/multimedia/integrantes/yeglimar-multimedia.jpg',               color: '#FDA4AF' },
+      { name: 'Alejandro Montiel', role: 'Fotografía y Diseño',                                                                                                               color: '#FDE68A' },
+      { name: 'Fabiola Sayago',    role: 'Diseño y Redes Sociales',                             photo: '/images/ministries/multimedia/integrantes/fabiola-multimedia.jpg',   color: '#C4B5FD' },
+      { name: 'Kendriana Oviedo',  role: 'Diseño y Redes Sociales',                                                                                                           color: '#86EFAC' },
+      { name: 'Lohisbell Díaz',    role: 'Proyección y Transmisión',                            photo: '/images/ministries/multimedia/integrantes/lohisbell-multimedia.jpg', color: '#FCA5A1' },
+      { name: 'Leonel Fabelo',     role: 'Proyección y Transmisión',                            photo: '/images/ministries/multimedia/integrantes/leonel-multimedia.jpg',                                                                              color: '#7DD3FC' },
+      { name: 'Sebastián García',  role: 'Proyección y Transmisión',                            photo: '/images/ministries/multimedia/integrantes/sebastian-multimedia.jpg', color: '#F9A8D4' },
+      { name: 'Jesús Perozo',      role: 'Proyección y Transmisión',                            photo: '/images/ministries/multimedia/integrantes/jesus-multimedia.jpg',     color: '#A7F3D0' },
+      { name: 'Daniel Montiel',    role: 'Proyección y Transmisión',                                                                                                          color: '#FCD34D' },
     ],
     designs: [
       { src: '/images/ministries/multimedia/dise%C3%B1os/galeria1.jpg', category: 'Diseño', alt: 'Diseño del ministerio de Multimedia' },

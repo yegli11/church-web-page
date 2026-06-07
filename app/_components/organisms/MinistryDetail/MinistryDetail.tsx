@@ -290,7 +290,7 @@ export default function MinistryDetail({ ministry }: { ministry: Ministry }) {
 
       {/* ── Media Reel — franja de fotos ── */}
       {ministry.reel?.length ? (
-        <MediaReel images={ministry.reel} label="Momentos capturados" colors={ministry.reelColors} />
+        <MediaReel images={ministry.reel} label="Momentos capturados" colors={ministry.reelColors} bg={ministry.reelBg} />
       ) : null}
 
       {/* ── Galería con lightbox ── */}
