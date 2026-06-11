@@ -141,6 +141,307 @@ const NAMES_SLUGS: { name: string; slug: string }[] = [
 
 // Contenido detallado por ministerio (se irá completando con el tiempo).
 const DETAILS: Record<string, Partial<Ministry>> = {
+  musical: {
+    cover: '/images/people/worship-image.jpg',
+    tagline: 'La voz de adoración de la iglesia',
+    description: [
+      'El Ministerio Musical es el equipo de alabanza de la iglesia — los músicos, cantantes y sonidistas que cada semana preparan la atmósfera para que la congregación encuentre a Dios en adoración.',
+      'Más que músicos, somos adoradores. Creemos que la alabanza tiene el poder de transformar corazones, liberar cautivos y abrir los cielos. Nuestro mayor instrumento no es la guitarra ni el teclado — es un corazón rendido y sensible al Espíritu Santo.',
+    ],
+    pillars: [
+      {
+        id: 'mision',
+        title: 'Misión',
+        tagline: 'Por qué existimos',
+        description: 'Preparar la atmósfera para que la congregación encuentre a Dios en adoración, llevando a cada persona a un encuentro genuino con el Espíritu Santo a través de la música y la alabanza.',
+      },
+      {
+        id: 'vision',
+        title: 'Visión',
+        tagline: 'Hacia dónde vamos',
+        description: 'Ser un equipo de adoradores íntegros, musicalemente excelentes y espiritualmente maduros, que inspiren a toda la congregación a vivir una vida de adoración permanente, no solo dentro del templo sino en cada área de su vida.',
+      },
+      {
+        id: 'alcance',
+        title: 'Alcance',
+        tagline: 'A quién llegamos',
+        description: 'Llegamos a cada persona que participa en los servicios — creyentes que necesitan renovar su fe, visitantes que llegan por primera vez y corazones que buscan a Dios sin saber todavía cómo encontrarlo.',
+      },
+      {
+        id: 'proposito',
+        title: 'Propósito',
+        tagline: 'El corazón de todo',
+        description: 'Glorificar a Dios con excelencia artística y pureza espiritual. Cada nota, cada letra y cada arreglo tiene un único objetivo: que Cristo sea exaltado y que los corazones sean transformados.',
+      },
+    ],
+    features: [
+      {
+        title: 'Alabanza en los servicios',
+        description: 'Dirigimos el tiempo de adoración en cada culto dominical y servicio de la semana, creando un ambiente propicio para la presencia de Dios.',
+        icon: 'sparkles',
+      },
+      {
+        title: 'Ensayos semanales',
+        description: 'Nos preparamos con disciplina y dedicación cada semana para ofrecer lo mejor a Dios y a la congregación.',
+        icon: 'broadcast',
+      },
+      {
+        title: 'Eventos especiales',
+        description: 'Cubrimos musicalmente los eventos especiales de la iglesia: noches de alabanza, retiros, aniversarios y actividades generales.',
+        icon: 'camera',
+      },
+      {
+        title: 'Formación de músicos',
+        description: 'Impulsamos el desarrollo de nuevos músicos y cantantes dentro de la iglesia, abriendo espacio para que los talentos crezcan y sirvan.',
+        icon: 'team',
+      },
+      {
+        title: 'Cobertura espiritual',
+        description: 'Además de tocar, intercedemos por los servicios y la congregación, entendiendo que la adoración es también una herramienta de guerra espiritual.',
+        icon: 'heart',
+      },
+      {
+        title: 'Repertorio y arreglos',
+        description: 'Seleccionamos y preparamos el repertorio de alabanza buscando siempre letras que edifiquen, enseñen y lleven a la congregación a adorar en espíritu y en verdad.',
+        icon: 'book',
+      },
+    ],
+    reel: [
+      '/images/people/worship-image.jpg',
+      '/images/people/pastor1-image.jpg',
+      '/images/people/bladimir-image.jpg',
+      '/images/people/franklin-image.jpg',
+      '/images/people/roberto-image.jpg',
+      '/images/people/pedro-image.jpg',
+      '/images/ministries/conexion-image.jpg',
+      '/images/people/marina-image.jpg',
+      '/images/people/yeniret-image.jpg',
+      '/images/ministries/recreacion-image.jpg',
+      '/images/people/joseMarin-image.jpg',
+      '/images/people/pastor2-image.jpg',
+    ],
+    team: [
+      { name: 'Gabriel Morales',   role: 'Director de Alabanza',  isLeader: true, photo: '/images/people/pastor1-image.jpg'   },
+      { name: 'Valentina Reyes',   role: 'Cantante Principal',                    photo: '/images/people/yeniret-image.jpg'   },
+      { name: 'Diego Suárez',      role: 'Guitarra',                              photo: '/images/people/bladimir-image.jpg'  },
+      { name: 'Camila Ortiz',      role: 'Teclado',                               photo: '/images/people/marina-image.jpg'    },
+      { name: 'Andrés Fuentes',    role: 'Bajo',                                  photo: '/images/people/roberto-image.jpg'   },
+      { name: 'Sofía Mendoza',     role: 'Coros',                                 photo: '/images/people/maylit-image.jpg'    },
+    ],
+    quote: 'Antes de tocar una nota, primero debemos adorar desde el corazón.',
+    verse: {
+      text: 'Cantad a Jehová cántico nuevo; cantad a Jehová, toda la tierra.',
+      reference: 'Salmos 96:1',
+    },
+  },
+  'hombres-intercesores': {
+    cover: '/images/people/worship-image.jpg',
+    tagline: 'Hombres que doblan la rodilla y mueven el cielo',
+    description: [
+      'El Ministerio de Hombres Intercesores es un grupo de hombres comprometidos que se reúnen semanalmente para orar, interceder y buscar juntos el rostro de Dios. Creemos que la oración de un hombre justo puede mucho, y que cuando nos reunimos en Su nombre, el cielo se mueve.',
+      'Nuestros encuentros son espacios de profundidad espiritual donde clamamos por la iglesia, las familias, la ciudad y las naciones. Cada semana, levantamos nuestra voz en unidad, creyendo que Dios oye y responde.',
+    ],
+    pillars: [
+      {
+        id: 'mision',
+        title: 'Misión',
+        tagline: 'Por qué existimos',
+        description: 'Reunirnos semanalmente como hombres de fe para orar, interceder y buscar el rostro de Dios en unidad, creyendo que nuestras oraciones tienen poder para transformar vidas, familias, la iglesia y la ciudad entera.',
+      },
+      {
+        id: 'vision',
+        title: 'Visión',
+        tagline: 'Hacia dónde vamos',
+        description: 'Ser un grupo de hombres intercesores que sostengan con oración cada área de la iglesia — un muro de protección espiritual que cuide a las familias, respalde al liderazgo y abra camino para que el avivamiento llegue a nuestra ciudad.',
+      },
+      {
+        id: 'alcance',
+        title: 'Alcance',
+        tagline: 'Por quién intercedemos',
+        description: 'Intercedemos por la iglesia local, el pastor y el liderazgo, las familias de la congregación, los jóvenes, la ciudad, el país y las naciones. Nuestro altar de oración no tiene fronteras.',
+      },
+      {
+        id: 'proposito',
+        title: 'Propósito',
+        tagline: 'El corazón de todo',
+        description: 'Levantar hombres de oración que sean pilares espirituales en su hogar y en la iglesia — hombres que entiendan que la batalla más importante no se pelea con armas físicas, sino de rodillas en la presencia de Dios.',
+      },
+    ],
+    features: [
+      {
+        title: 'Reunión semanal de oración',
+        description: 'Nos reunimos cada semana para orar juntos — un espacio de encuentro con Dios donde cada hombre trae su corazón y su fe.',
+        icon: 'sparkles',
+      },
+      {
+        title: 'Intercesión por la iglesia',
+        description: 'Cubrimos en oración al pastor, los líderes, los ministerios y cada área de la iglesia para que todo funcione bajo la dirección del Espíritu Santo.',
+        icon: 'broadcast',
+      },
+      {
+        title: 'Intercesión por las familias',
+        description: 'Alzamos en oración a cada familia de la congregación, creyendo que Dios sana, restaura y protege los hogares cuando hay hombres que interceden.',
+        icon: 'heart',
+      },
+      {
+        title: 'Intercesión por la ciudad',
+        description: 'Extendemos nuestra oración más allá de las cuatro paredes de la iglesia, clamando por la ciudad, el país y las naciones que Dios ponga en nuestro corazón.',
+        icon: 'social',
+      },
+      {
+        title: 'Comunión entre hermanos',
+        description: 'El ministerio también es un espacio de compañerismo genuino donde los hombres se apoyan, animan y caminan juntos en la fe.',
+        icon: 'team',
+      },
+      {
+        title: 'Crecimiento espiritual',
+        description: 'Cada encuentro profundiza la vida de oración personal de cada hombre, formando creyentes más maduros, firmes y sensibles al Espíritu.',
+        icon: 'book',
+      },
+    ],
+    steps: [
+      {
+        number: '01',
+        title: 'Alabanza y adoración',
+        description: 'Iniciamos con un tiempo de adoración para entrar en la presencia de Dios y preparar nuestros corazones para interceder con fe.',
+      },
+      {
+        number: '02',
+        title: 'Confesión y rendición',
+        description: 'Nos vaciamos delante de Dios, confesamos y rendimos nuestros corazones para que el Espíritu Santo obre libremente entre nosotros.',
+      },
+      {
+        number: '03',
+        title: 'Intercesión corporativa',
+        description: 'Oramos juntos con fervor por la iglesia, las familias, la ciudad y los temas que Dios pone en nuestro corazón esa semana.',
+      },
+      {
+        number: '04',
+        title: 'Proclamación y cierre',
+        description: 'Cerramos declarando las promesas de Dios, proclamando Su victoria y agradeciéndole por las oraciones que ya están respondidas.',
+      },
+    ],
+    stepsEyebrow: 'Cada semana',
+    stepsTitle: '¿Cómo es nuestra reunión de oración?',
+    gallery: [
+      { src: '/images/people/worship-image.jpg',       alt: 'Hombres en tiempo de oración' },
+      { src: '/images/people/pastor1-image.jpg',       alt: 'Intercesión en el templo' },
+      { src: '/images/people/bladimir-image.jpg',      alt: 'Integrante del ministerio' },
+      { src: '/images/people/roberto-image.jpg',       alt: 'Hombre intercediendo' },
+      { src: '/images/people/franklin-image.jpg',      alt: 'Reunión de oración' },
+      { src: '/images/people/pedro-image.jpg',         alt: 'Hombre de fe en oración' },
+      { src: '/images/people/joseMarin-image.jpg',     alt: 'Miembro del grupo de intercesión' },
+      { src: '/images/ministries/conexion-image.jpg',  alt: 'Encuentro espiritual de la iglesia' },
+    ],
+    team: [
+      { name: 'Roberto Hernández', role: 'Líder Principal',          isLeader: true, photo: '/images/people/pastor1-image.jpg'   },
+      { name: 'Marcos Vidal',      role: 'Coordinador de Oración',                  photo: '/images/people/bladimir-image.jpg'  },
+      { name: 'Luis Alberto Soto', role: 'Intercesor',                              photo: '/images/people/roberto-image.jpg'   },
+      { name: 'Gustavo Paredes',   role: 'Intercesor',                              photo: '/images/people/franklin-image.jpg'  },
+      { name: 'Fernando Díaz',     role: 'Intercesor',                              photo: '/images/people/pedro-image.jpg'     },
+      { name: 'José Ramírez',      role: 'Intercesor',                              photo: '/images/people/joseMarin-image.jpg' },
+    ],
+    quote: 'No hay nada más poderoso que un grupo de hombres de rodillas delante de Dios.',
+    verse: {
+      text: 'Confesaos vuestras ofensas unos a otros, y orad unos por otros, para que seáis sanados. La oración eficaz del justo puede mucho.',
+      reference: 'Santiago 5:16',
+    },
+  },
+  protocolo: {
+    cover: '/images/ministries/protocolo-image.jpg',
+    tagline: 'La primera sonrisa que la iglesia le da al mundo',
+    description: [
+      'El Ministerio de Protocolo es el equipo que da la bienvenida a cada persona que llega a la iglesia. Somos quienes cuidan la experiencia desde el primer segundo: orientando al visitante, manteniendo el orden, y asegurándonos de que nadie se sienta perdido o solo.',
+      'Servimos dentro y fuera del templo, coordinando el flujo del servicio, apoyando en eventos especiales y representando el amor de Dios con una sonrisa, una palabra amable y una disposición de corazón.',
+    ],
+    pillars: [
+      {
+        id: 'mision',
+        title: 'Misión',
+        tagline: 'Por qué existimos',
+        description: 'Crear la primera experiencia de amor de la iglesia para cada persona que llega, asegurándonos de que cada visitante, miembro y familia sean recibidos con calidez, orientados con claridad y atendidos con excelencia en todo momento.',
+      },
+      {
+        id: 'vision',
+        title: 'Visión',
+        tagline: 'Hacia dónde vamos',
+        description: 'Ser un equipo que eleve el estándar de hospitalidad cristiana — donde cada persona que entre por primera vez sienta que fue esperada, bienvenida y valorada, y salga con el deseo de regresar y hacer de esta iglesia su hogar.',
+      },
+      {
+        id: 'alcance',
+        title: 'Alcance',
+        tagline: 'A quién servimos',
+        description: 'Atendemos a cada persona que llega a la iglesia: visitantes de primera vez, familias con niños, personas de la tercera edad y a todo aquel que necesite orientación o apoyo durante el servicio. Nadie pasa desapercibido para nosotros.',
+      },
+      {
+        id: 'proposito',
+        title: 'Propósito',
+        tagline: 'El corazón de todo',
+        description: 'Reflejar el carácter de Cristo desde la puerta de entrada. Entendemos que servir en protocolo no es solo una función logística — es un acto de amor y adoración que prepara el terreno para que Dios obre en cada corazón.',
+      },
+    ],
+    features: [
+      {
+        title: 'Bienvenida y recepción',
+        description: 'Recibimos a cada persona con una sonrisa genuina y una palabra de bienvenida, haciendo que desde el primer segundo se sienta parte de la familia.',
+        icon: 'heart',
+      },
+      {
+        title: 'Orientación al visitante',
+        description: 'Guiamos a los nuevos visitantes a encontrar su lugar, conocer las instalaciones y sentirse cómodos y seguros dentro del templo.',
+        icon: 'team',
+      },
+      {
+        title: 'Orden en el servicio',
+        description: 'Coordinamos el flujo de personas durante la entrada, salida y momentos especiales del servicio para que todo se desarrolle con fluidez.',
+        icon: 'broadcast',
+      },
+      {
+        title: 'Apoyo en eventos',
+        description: 'Organizamos y apoyamos el protocolo en eventos especiales, bodas, graduaciones y actividades generales de la iglesia con profesionalismo.',
+        icon: 'sparkles',
+      },
+      {
+        title: 'Coordinación interna',
+        description: 'Comunicamos necesidades al equipo de liderazgo y trabajamos junto a los demás ministerios para que cada servicio sea una experiencia integral.',
+        icon: 'social',
+      },
+      {
+        title: 'Atención permanente',
+        description: 'Estamos atentos dentro y fuera del templo durante todo el servicio — anticipando necesidades y respondiendo con prontitud y amor.',
+        icon: 'camera',
+      },
+    ],
+    stats: [
+      { value: 5,   suffix: '+', label: 'Años sirviendo' },
+      { value: 100, suffix: '+', label: 'Servicios atendidos' },
+      { value: 500, suffix: '+', label: 'Visitantes recibidos' },
+      { value: 10,  suffix: '+', label: 'Eventos especiales' },
+    ],
+    gallery: [
+      { src: '/images/ministries/protocolo-image.jpg',  alt: 'Equipo de Protocolo en servicio' },
+      { src: '/images/people/marina-image.jpg',         alt: 'Recibiendo a los visitantes' },
+      { src: '/images/people/yeniret-image.jpg',        alt: 'Miembro de protocolo en acción' },
+      { src: '/images/people/ochi-image.jpg',           alt: 'Bienvenida en el templo' },
+      { src: '/images/people/worship-image.jpg',        alt: 'Ambiente del servicio' },
+      { src: '/images/ministries/conexion-image.jpg',   alt: 'Evento especial de la iglesia' },
+      { src: '/images/people/roberto-image.jpg',        alt: 'Coordinación del equipo' },
+      { src: '/images/ministries/recreacion-image.jpg', alt: 'Actividad especial con protocolo' },
+    ],
+    team: [
+      { name: 'Isabel Rodríguez',  role: 'Líder Principal',        isLeader: true, photo: '/images/people/marina-image.jpg'    },
+      { name: 'Carlos Vera',       role: 'Coordinador de Turno',                  photo: '/images/people/roberto-image.jpg'   },
+      { name: 'Sofía Ramírez',     role: 'Recepción y Bienvenida',                photo: '/images/people/yeniret-image.jpg'   },
+      { name: 'Andrés Molina',     role: 'Orientación y Orden',                   photo: '/images/people/joseMarin-image.jpg' },
+      { name: 'Valentina Torres',  role: 'Apoyo a Visitantes',                    photo: '/images/people/maylit-image.jpg'    },
+      { name: 'Marcos Gutiérrez',  role: 'Protocolo en Eventos',                  photo: '/images/people/bladimir-image.jpg'  },
+    ],
+    quote: 'Cada persona que entra merece sentir que fue esperada.',
+    verse: {
+      text: 'Practicad la hospitalidad entre vosotros, sin murmuraciones.',
+      reference: '1 Pedro 4:9',
+    },
+  },
   vigilancia: {
     cover: '/images/ministries/vigilancia-image.jpg',
     tagline: 'Cuidando la casa de Dios con excelencia',
@@ -224,7 +525,16 @@ const DETAILS: Record<string, Partial<Ministry>> = {
     },
   },
   infantil: {
-    cover: '/images/ministries/infantil-image.jpg',
+    cover: '/images/ministries/infantil/principal/1.jpg',
+    gallery: [
+      { src: '/images/ministries/infantil/principal/1.jpg', alt: 'Ministerio Infantil' },
+      { src: '/images/ministries/infantil/principal/2.jpg', alt: 'Ministerio Infantil' },
+      { src: '/images/ministries/infantil/principal/3.jpg', alt: 'Ministerio Infantil' },
+      { src: '/images/ministries/infantil/principal/4.jpg', alt: 'Ministerio Infantil' },
+      { src: '/images/ministries/infantil/principal/5.jpg', alt: 'Ministerio Infantil' },
+      { src: '/images/ministries/infantil/principal/6.jpg', alt: 'Ministerio Infantil' },
+      { src: '/images/ministries/infantil/principal/7.jpg', alt: 'Ministerio Infantil' },
+    ],
     tagline: 'Donde los pequeños crecen grandes en fe',
     description: [
       'El Ministerio Infantil es el corazón tierno de la iglesia: un espacio creado especialmente para que los más pequeños disfruten, se conecten y descubran el amor de Dios de una manera divertida y memorable.',
@@ -295,10 +605,10 @@ const DETAILS: Record<string, Partial<Ministry>> = {
     reelColors: ['#FF5A00', '#FFCC00', '#FF62D7', '#2495FF', '#A6FE5A', '#00DBEE', '#FF9700', '#563CF3'],
     team: [
       { name: 'Maylit de Sierra',    role: 'Líder Principal',  isLeader: true, photo: '/images/people/maylit-image.jpg',    color: '#FFCC00' },
-      { name: 'Mayinot Sierra',      role: 'Ayudante',                         photo: '/images/people/marina-image.jpg',    color: '#563CF3' },
+      { name: 'Mayinot Sierra',      role: 'Ayudante',                         photo: '/images/ministries/infantil/integrantes/mayinot-infantil.jpg',    color: '#563CF3' },
       { name: 'Daniel Montiel',      role: 'Ayudante',                         photo: '/images/people/joseMarin-image.jpg', color: '#A6FE5A' },
       { name: 'Alejandro Montiel',   role: 'Ayudante',                         photo: '/images/people/pedro-image.jpg',     color: '#FF9700' },
-      { name: 'Jesús Perozo',        role: 'Ayudante',                         photo: '/images/people/franklin-image.jpg',  color: '#00DBEE' },
+      { name: 'Jesús Perozo',        role: 'Ayudante',                         photo: '/images/ministries/multimedia/integrantes/jesus-multimedia.jpg',  color: '#00DBEE' },
     ],
     steps: [
       {
