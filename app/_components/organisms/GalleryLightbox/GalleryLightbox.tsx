@@ -60,7 +60,7 @@ export default function GalleryLightbox({ images }: { images: MinistryImage[] })
                   fill
                   quality={90}
                   sizes="(max-width: 768px) 50vw, 25vw"
-                  className={`grayscale-[35%] transition-all duration-700 group-hover:grayscale-0 ${
+                  className={`transition-all duration-700 ${
                     featured
                       ? 'object-contain object-center group-hover:scale-[1.03]'
                       : 'object-cover object-top group-hover:scale-105'
